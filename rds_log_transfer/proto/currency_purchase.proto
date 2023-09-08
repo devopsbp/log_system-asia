@@ -1,0 +1,32 @@
+syntax = "proto2";
+option go_package = "proto/currency_purchase";
+package currency_purchase;
+import "google/protobuf/timestamp.proto";
+
+message CurrencyPurchaseMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional sint32 agency_id = 3;
+    optional sint32 payment_type = 4;
+    optional string order_id = 5;
+    optional sint32 item_id = 6;
+    optional string item_name = 7;
+    optional sint32 count = 8;
+    optional sint32 price = 9;
+    optional sint32 step = 10;
+    optional string url = 11;
+    optional string request_date = 12;
+    optional string request_params = 13;
+    optional sint32 result_code = 14;
+    optional string agency_result_code = 15;
+    optional string agency_result_message = 16;
+    optional string response_date = 17;
+    optional sint32 status_code = 18;
+    optional string result = 19;
+    optional float unit_price = 20;
+    optional string currency = 21;
+    optional bool first_purchase_for_payment = 22;
+    optional string request_header_location = 23;
+    optional google.protobuf.Timestamp log_time = 24;
+    optional string uuid = 25;
+}

@@ -1,0 +1,14 @@
+syntax = "proto2";
+option go_package = "proto/stamp_acquisition";
+package stamp_acquisition;
+import "google/protobuf/timestamp.proto";
+
+message StampAcquisitionMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional sint32 character_level = 3;
+    optional string stamp_ids = 4;
+    optional string request_header_location = 5;
+    optional google.protobuf.Timestamp log_time = 6;
+    optional string uuid = 7;
+}

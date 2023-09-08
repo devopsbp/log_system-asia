@@ -1,0 +1,58 @@
+{
+  "table_data": [
+    {
+      "table_name": "cloud_to_bq_sb_logs",
+      "table_schema": [
+        {
+          "name": "log_file",
+          "type": "string"
+        },
+        {
+          "name": "status",
+          "type": "string"
+        },
+        {
+          "name": "error",
+          "type": "string"
+        },
+        {
+          "name": "log_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp"
+        }
+      ]
+    },
+    {
+      "table_name": "cloud_to_bq_exceeded",
+      "table_schema": [
+        {
+          "name": "uuid",
+          "type": "string"
+        },
+        {
+          "name": "target",
+          "type": "string"
+        },
+        {
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "name": "timestamp",
+          "type": "integer"
+        },
+        {
+          "name": "log_time",
+          "type": "timestamp"
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp"
+        }
+      ]
+    }
+  ]
+}

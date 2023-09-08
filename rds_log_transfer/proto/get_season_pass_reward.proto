@@ -1,0 +1,18 @@
+syntax = "proto2";
+option go_package = "proto/get_season_pass_reward";
+package get_season_pass_reward;
+import "google/protobuf/timestamp.proto";
+
+message GetSeasonPassRewardMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional sint32 character_level = 3;
+    optional string season_id = 4;
+    optional string season_id__name = 5;
+    optional string season_reward_id = 6;
+    optional string season_reward_id__name = 7;
+    optional string mail_id = 8;
+    optional string request_header_location = 9;
+    optional google.protobuf.Timestamp log_time = 10;
+    optional string uuid = 11;
+}

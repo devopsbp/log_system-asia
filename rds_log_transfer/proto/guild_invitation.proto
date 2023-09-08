@@ -1,0 +1,19 @@
+syntax = "proto2";
+option go_package = "proto/guild_invitation";
+package guild_invitation;
+import "google/protobuf/timestamp.proto";
+
+message GuildInvitationMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional string character_name = 3;
+    optional string to_user_id = 4;
+    optional string to_character_id = 5;
+    optional string to_character_name = 6;
+    optional string guild_id = 7;
+    optional string guild_name = 8;
+    optional string entry_id = 9;
+    optional string request_header_location = 10;
+    optional google.protobuf.Timestamp log_time = 11;
+    optional string uuid = 12;
+}

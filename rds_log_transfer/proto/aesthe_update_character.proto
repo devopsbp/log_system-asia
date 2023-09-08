@@ -1,0 +1,18 @@
+syntax = "proto2";
+option go_package = "proto/aesthe_update_character";
+package aesthe_update_character;
+import "google/protobuf/timestamp.proto";
+
+message AestheUpdateCharacterMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional sint32 course_id = 3;
+    optional string course_id__name = 4;
+    optional sint32 token_id = 5;
+    optional string token_id__name = 6;
+    optional sint32 token_amount = 7;
+    optional string character_create = 8;
+    optional string request_header_location = 9;
+    optional google.protobuf.Timestamp log_time = 10;
+    optional string uuid = 11;
+}

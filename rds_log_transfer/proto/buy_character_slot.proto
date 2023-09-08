@@ -1,0 +1,14 @@
+syntax = "proto2";
+option go_package = "proto/buy_character_slot";
+package buy_character_slot;
+import "google/protobuf/timestamp.proto";
+
+message BuyCharacterSlotMsg {
+    optional string user_id = 1;
+    optional sint32 additional_character_slot = 2;
+    optional sint32 character_slot = 3;
+    optional sint32 purchase_amount = 4;
+    optional string request_header_location = 5;
+    optional google.protobuf.Timestamp log_time = 6;
+    optional string uuid = 7;
+}

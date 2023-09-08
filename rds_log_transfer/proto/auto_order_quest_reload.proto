@@ -1,0 +1,21 @@
+syntax = "proto2";
+option go_package = "proto/auto_order_quest_reload";
+package auto_order_quest_reload;
+import "google/protobuf/timestamp.proto";
+
+message AutoOrderQuestReloadMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional sint32 character_level = 3;
+    optional sint32 quest_auto_order_type = 4;
+    optional string season_id = 5;
+    optional string season_id__name = 6;
+    optional string quest_reload_id = 7;
+    optional sint32 ticket_id = 8;
+    optional sint32 ticket_count = 9;
+    optional string request_header_location = 10;
+    optional string quest_unique_id = 11;
+    optional string auto_order_quest_unique_id = 12;
+    optional google.protobuf.Timestamp log_time = 13;
+    optional string uuid = 14;
+}

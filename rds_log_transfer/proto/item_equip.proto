@@ -1,0 +1,18 @@
+syntax = "proto2";
+option go_package = "proto/item_equip";
+package item_equip;
+import "google/protobuf/timestamp.proto";
+
+message ItemEquipMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional string character_class = 3;
+    optional string request_header_location = 4;
+    optional bool equip_flag = 5;
+    optional string equip_type = 6;
+    optional sint32 item_id = 7;
+    optional string item_id__name = 8;
+    optional string item_unique_id = 9;
+    optional google.protobuf.Timestamp log_time = 10;
+    optional string uuid = 11;
+}

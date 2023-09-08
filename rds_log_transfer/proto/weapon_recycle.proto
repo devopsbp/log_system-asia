@@ -1,0 +1,33 @@
+syntax = "proto2";
+option go_package = "proto/weapon_recycle";
+package weapon_recycle;
+import "google/protobuf/timestamp.proto";
+
+message WeaponRecycleMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional string character_class = 3;
+    optional string unique_id = 4;
+    optional sint32 item_id = 5;
+    optional string item_id__name = 6;
+    optional sint32 perk_id1 = 7;
+    optional string effect_values1 = 8;
+    optional sint32 perk_id2 = 9;
+    optional string effect_values2 = 10;
+    optional sint32 perk_id3 = 11;
+    optional string effect_values3 = 12;
+    optional sint32 perk_id4 = 13;
+    optional string effect_values4 = 14;
+    optional sint32 present_unlocked_slot = 15;
+    optional string used_ticket_unique_id = 16;
+    optional sint32 used_ticket_id = 17;
+    optional sint32 used_ticket_count = 18;
+    optional sint32 recycle_slot_no = 19;
+    optional sint32 recycle_perk_id = 20;
+    optional string recycle_effect_values = 21;
+    optional string recycled_item_unique_id = 22;
+    optional sint32 recycled_item_id = 23;
+    optional string request_header_location = 24;
+    optional google.protobuf.Timestamp log_time = 25;
+    optional string uuid = 26;
+}

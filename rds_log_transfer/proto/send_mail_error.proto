@@ -1,0 +1,14 @@
+syntax = "proto2";
+option go_package = "proto/send_mail_error";
+package send_mail_error;
+import "google/protobuf/timestamp.proto";
+
+message SendMailErrorMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional sint32 sb_ret_code = 3;
+    optional string sb_error_message = 4;
+    optional string request_header_location = 5;
+    optional google.protobuf.Timestamp log_time = 6;
+    optional string uuid = 7;
+}

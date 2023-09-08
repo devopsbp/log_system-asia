@@ -1,0 +1,25 @@
+syntax = "proto2";
+option go_package = "proto/defense_battle";
+package defense_battle;
+import "google/protobuf/timestamp.proto";
+
+message DefenseBattleMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional string character_class = 3;
+    optional sint32 character_class_level = 4;
+    optional string unaltered_contribution_scores = 5;
+    optional float character_battle_score = 6;
+    optional string equipped_weapons = 7;
+    optional string equipped_battle_imagines = 8;
+    optional string equipped_inner_imagines = 9;
+    optional string equipped_tactical_skills = 10;
+    optional string equipped_tactical_abilities = 11;
+    optional string equipped_class_skills = 12;
+    optional float character_damage = 13;
+    optional sint32 number_of_deaths = 14;
+    optional sint32 number_of_enemies_defeated = 15;
+    optional string request_header_location = 16;
+    optional google.protobuf.Timestamp log_time = 17;
+    optional string uuid = 18;
+}

@@ -1,0 +1,27 @@
+syntax = "proto2";
+option go_package = "proto/gasha_reward_receipt";
+package gasha_reward_receipt;
+import "google/protobuf/timestamp.proto";
+
+message GashaRewardReceiptMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional sint32 gender = 3;
+    optional sint32 adventurer_rank = 4;
+    optional sint32 platform = 5;
+    optional string gasha_id = 6;
+    optional string gasha_id__name = 7;
+    optional string gasha_name = 8;
+    optional string reward_items = 9;
+    optional string bonus_items = 10;
+    optional sint32 change_amount_paid = 11;
+    optional sint32 change_amount_free = 12;
+    optional sint32 change_amount_coin = 13;
+    optional sint32 change_token_id = 14;
+    optional string change_token_id__name = 15;
+    optional sint32 change_amount_token = 16;
+    optional sint32 gasha_count = 17;
+    optional string request_header_location = 18;
+    optional google.protobuf.Timestamp log_time = 19;
+    optional string uuid = 20;
+}

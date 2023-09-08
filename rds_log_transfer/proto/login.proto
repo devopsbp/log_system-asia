@@ -1,0 +1,15 @@
+syntax = "proto2";
+option go_package = "proto/login";
+package login;
+import "google/protobuf/timestamp.proto";
+
+message LoginMsg {
+    optional string user_id = 1;
+    optional string ip = 2;
+    optional sint32 platform = 3;
+    optional bool is_network_cafe = 4;
+    optional bool is_first_login = 5;
+    optional string request_header_location = 6;
+    optional google.protobuf.Timestamp log_time = 7;
+    optional string uuid = 8;
+}

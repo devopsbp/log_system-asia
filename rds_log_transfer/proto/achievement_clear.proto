@@ -1,0 +1,15 @@
+syntax = "proto2";
+option go_package = "proto/achievement_clear";
+package achievement_clear;
+import "google/protobuf/timestamp.proto";
+
+message AchievementClearMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional string character_name = 3;
+    optional string achievement_id = 4;
+    optional string achievement_id__name = 5;
+    optional string request_header_location = 6;
+    optional google.protobuf.Timestamp log_time = 7;
+    optional string uuid = 8;
+}

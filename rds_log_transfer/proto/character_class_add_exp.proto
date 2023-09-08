@@ -1,0 +1,17 @@
+syntax = "proto2";
+option go_package = "proto/character_class_add_exp";
+package character_class_add_exp;
+import "google/protobuf/timestamp.proto";
+
+message CharacterClassAddExpMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional string request_header_location = 3;
+    optional sint32 class_type = 4;
+    optional sint32 request_exp = 5;
+    optional sint32 add_exp = 6;
+    optional sint32 before_exp = 7;
+    optional sint32 after_exp = 8;
+    optional google.protobuf.Timestamp log_time = 9;
+    optional string uuid = 10;
+}

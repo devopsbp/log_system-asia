@@ -1,0 +1,17 @@
+syntax = "proto2";
+option go_package = "proto/logout";
+package logout;
+import "google/protobuf/timestamp.proto";
+
+message LogoutMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional string session_id = 3;
+    optional sint32 class_type = 4;
+    optional string ip = 5;
+    optional bool is_network_cafe = 6;
+    optional sint32 client_exit_status = 7;
+    optional string request_header_location = 8;
+    optional google.protobuf.Timestamp log_time = 9;
+    optional string uuid = 10;
+}

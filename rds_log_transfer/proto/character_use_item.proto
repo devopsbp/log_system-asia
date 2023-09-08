@@ -1,0 +1,19 @@
+syntax = "proto2";
+option go_package = "proto/character_use_item";
+package character_use_item;
+import "google/protobuf/timestamp.proto";
+
+message CharacterUseItemMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional string character_class = 3;
+    optional string request_header_location = 4;
+    optional sint32 item_type = 5;
+    optional sint32 item_id = 6;
+    optional string item_id__name = 7;
+    optional sint32 amount = 8;
+    optional sint32 now_amount = 9;
+    optional string unique_id = 10;
+    optional google.protobuf.Timestamp log_time = 11;
+    optional string uuid = 12;
+}

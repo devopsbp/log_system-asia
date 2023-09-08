@@ -1,0 +1,16 @@
+syntax = "proto2";
+option go_package = "proto/liquid_memory_use";
+package liquid_memory_use;
+import "google/protobuf/timestamp.proto";
+
+message LiquidMemoryUseMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional string character_class = 3;
+    optional sint32 liquid_memory_id = 4;
+    optional sint32 liquid_memory_type = 5;
+    optional sint32 liquid_memory_level = 6;
+    optional string request_header_location = 7;
+    optional google.protobuf.Timestamp log_time = 8;
+    optional string uuid = 9;
+}

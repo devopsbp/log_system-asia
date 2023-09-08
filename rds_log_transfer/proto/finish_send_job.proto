@@ -1,0 +1,11 @@
+syntax = "proto2";
+option go_package = "proto/finish_send_job";
+package finish_send_job;
+import "google/protobuf/timestamp.proto";
+
+message FinishSendJobMsg {
+    optional google.protobuf.Timestamp time = 1;
+    optional string request_header_location = 2;
+    optional google.protobuf.Timestamp log_time = 3;
+    optional string uuid = 4;
+}

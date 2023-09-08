@@ -1,0 +1,15 @@
+syntax = "proto2";
+option go_package = "proto/soul_rank_up";
+package soul_rank_up;
+import "google/protobuf/timestamp.proto";
+
+message SoulRankUpMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional sint32 adventurer_rank = 3;
+    optional sint32 class_level = 4;
+    optional string character_class = 5;
+    optional string request_header_location = 6;
+    optional google.protobuf.Timestamp log_time = 7;
+    optional string uuid = 8;
+}

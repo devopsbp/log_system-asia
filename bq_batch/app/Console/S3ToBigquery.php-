@@ -1,0 +1,975 @@
+<?php
+
+namespace App\Console\Commands;
+
+use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\Process\Process;
+use Google\Cloud\Core\ExponentialBackoff;
+use Google\Cloud\BigQuery\BigQueryClient;
+
+/**
+ * s3_to_bigquery automation batch
+ * GOOGLE_APPLICATION_CREDENTIALS= ... /s3_to_bq/production/sb_bq_service_account.json
+ * 0,20,40 * * * * cd ... /s3_to_bq/production && php artisan s3_to_bigquery --CRON >> storage/logs/s3-to-bq_CRON.log
+ */
+class S3ToBigquery extends Command
+{
+	/**
+	 * The name and signature of the console command.
+	 *
+	 * @var string
+	 */
+	protected $signature = 's3_to_bigquery {--d|debug} {--uuid=} {--s3-key=} {--s3-secret=} {--s3-region=} {--s3-bucket=} {--s3-root=} {--bq-project-id=} {--bq-dataset-id=} {--CRON}';
+
+	/**
+	 * The console command description.
+	 *
+	 * @var string
+	 */
+	protected $description = 's3_to_bigquery pre_format and csv_upload';
+
+	const GCP_KEY_PATH             = 'GOOGLE_APPLICATION_CREDENTIALS';
+
+	const RAW_STORAGE_DRIVER       = 's3';
+	const SB_LOG_S3_AWS_REGION     = 'ap-northeast-1';
+	const SB_LOG_S3_AWS_BUCKET     = 'sb-log-system-cbt';
+	const SB_LOG_S3_AWS_PREFIX     = 'sb_logs';
+	const S3_RAW_PREFIX            = 'bigquery.backup';
+	const S3_BACKUP_PREFIX         = 'bigquery.finished';
+
+	const SB_LOG_BQ_GCP_PROJECT_ID = 'serval-cbt';
+	const SB_LOG_BQ_GCP_DATASET_ID = 'SB_LOG_cbt_reinput_with_extra_field';
+
+	const EXTRA_FIELD_NAME         = '_extra_fields';
+	const RAW_FIELD_NAME           = '_fluentd_raw';
+
+	const MAX_RUN_PROCS              = 1;                // procs
+	const SEND_CSV_SIZE_MIN          = 100 * 1000 * 1000; // byte
+	const SIZE_LIMIT                 = 450 * 1000 * 1000; // byte
+	const TIME_LIMIT                 = 60 * 10;           // sec
+	const CRON_TIME_LIMIT            = 60 * 3;            // sec
+	const FORCE_INTRRUPTION_RATE     = 1.5;               // rate
+	const MEM_LIMIT_RATE             = 80;                // %
+	const DISK_LIMIT_RATE            = 75;                // %
+	const MEM_MARGIN_PROCS           = 10;                // procs
+	const MIN_SEARCH_FILES           = 1;                 // files
+	
+	const EX_LOGS                    = [
+		'SB_LOG_request'                => 1400 * 1000 * 1000,
+		'SB_LOG_character_defeat_enemy' => 400  * 1000 * 1000,
+	];
+
+
+	const BIGQUERY_TIMEOUT           = 60 * 60;
+	const BIGQUERY_PROJECT_DAY_LIMIT = 100000;
+	const BIGQUERY_TABLE_DAY_LIMIT   = 1000;
+	const BIGQUERY_WAIT_DEFAULT      = 3;
+
+
+	const HEALTH_CHECK_LOG_PATH = 'storage/logs/s3-to-bq_health.log';
+	const TEMP_MAX_MEMORY       = 4096 * 1024 * 1024;
+
+	const STATUS_NEW            = 'new';
+	const STATUS_LOCKED         = 'locked';     // logs only
+	const STATUS_FINISHED       = 'finished';
+	const STATUS_TERMINATED     = 'terminated'; // processes only
+
+	const JOB_EXCEEDED_KEY      = 'job_exceeded';
+
+	const DEFAULT_BQ_TABLE      = [
+		'table'      => null,
+		'temp_fp'    => null,
+		'temp_path'  => null,
+		'schema'     => null,
+	];
+
+	private $_debug           = false;
+	private $_uuid            = null;
+	private $_s3              = null;
+	private $_storage_config  = [];
+	private $_bigquery_config = [];
+
+	/**
+	 * Create a new command instance.
+	 *
+	 * @return void
+	 */
+	public function __construct()
+	{
+		ini_set('memory_limit', '-1');
+		parent::__construct();
+
+		$this->_bigquery_config['keyFilePath'] = getenv(self::GCP_KEY_PATH);
+		if(!$this->_bigquery_config['keyFilePath']
+		|| $this->_bigquery_config['keyFilePath'] !== getenv(self::GCP_KEY_PATH, true)
+		|| !is_file($this->_bigquery_config['keyFilePath'])
+		|| !is_readable($this->_bigquery_config['keyFilePath']))
+		{
+			throw new \Exception('invalid gcp key : ' . $this->_bigquery_config['keyFilePath']);
+		}
+	}
+
+	/**
+	 * Execute the console command.
+	 *
+	 * @return mixed
+	 */
+	public function handle()
+	{
+		$this->_storage_config['driver'] = self::RAW_STORAGE_DRIVER;
+		$this->_storage_config['region'] = (self::SB_LOG_S3_AWS_REGION ?: ($this->option('s3-region') ?: $this->ask('aws_s3_region')));
+		$this->_storage_config['bucket'] = (self::SB_LOG_S3_AWS_BUCKET ?: ($this->option('s3-bucket') ?: $this->ask('aws_s3_bucket')));
+		$this->_storage_config['root']   = (self::SB_LOG_S3_AWS_PREFIX ?: ($this->option('s3-root')   ?: $this->ask('aws_s3_prefix')));
+
+		$this->_bigquery_config['projectId'] = (self::SB_LOG_BQ_GCP_PROJECT_ID ?: ($this->option('bq-project-id') ?: $this->ask('gcp_project_id')));
+		$this->_bigquery_config['datasetId'] = (self::SB_LOG_BQ_GCP_DATASET_ID ?: ($this->option('bq-dataset-id') ?: $this->ask('gcp_dataset_id')));
+
+		$this->_debug = (bool)$this->option('debug');
+
+		if(!$this->_checkContinue())
+		{
+			return;
+		}
+
+		$fputcsv_escape = PHP_VERSION_ID < 70400 ? "\0" : '';
+
+		$this->info('[format] ' . (new \DateTime())->format('Y-m-d H:i:s.u'));
+
+		foreach($this->_storage_config + $this->_bigquery_config as $key => $value)
+		{
+			if(!$value
+			&& $value !== null)
+			{
+				throw new \Exception('invalid env params : ' . $key . '=' . $value);
+			}
+		}
+
+		$this->_storage_config['key']    = \App::environment('production') ? null : (string)($this->option('s3-key')    ?: $this->ask('aws_access_key_id'));
+		$this->_storage_config['secret'] = \App::environment('production') ? null : (string)($this->option('s3-secret') ?: $this->secret('aws_secret_access_key'));
+
+		if($this->_storage_config['key']    === ''
+		|| $this->_storage_config['secret'] === '')
+		{
+			throw new \Exception('aws_s3 access denied : ' . $this->_storage_config['key']);
+		}
+
+		$start_time = time();
+
+		if(!($bq         = new BigQueryClient($this->_bigquery_config))
+		|| !($bq_dataset = $bq->dataset($this->_bigquery_config['datasetId']))
+		|| !($this->_s3  = Storage::createS3Driver($this->_storage_config)))
+		{
+			throw new \Exception('aws_s3 invalid authentication');
+		}
+
+        if(!($this->_uuid = $this->option('uuid')))
+        {
+			if($this->_uuid !== null)
+			{
+				$this->error('error : invalid process uuid');
+				return;
+			}
+			$this->_uuid = $this->option('CRON') ? (date('Ymd') . '_CRON_' . date('Hi')) : (get_current_user() . '_' . date('YmdHis'));
+		}
+
+		$pdo = \DB::getPdo();
+		try
+		{
+			$sth = $pdo->prepare('INSERT INTO `s3_to_bigquery_processes` (`process_uuid`) VALUES (?)');
+			if(!$sth->execute([$this->_uuid]))
+			{
+				throw new \Exception('process uuid duplicate');
+			}
+
+			$files = $this->_searchTargetFiles(self::S3_RAW_PREFIX);
+			// $this->_debugInsertEOL();
+			// $this->_debugMemoryUsage();
+			$this->info('find=' . count($files));
+
+			$success    = 0;
+			$failure    = 0;
+			$skip       = 0;
+			$total_rows = 0;
+			$total_size = 0;
+			$last_file  = '';
+			$bq_tables  = [];
+			$skip_files = [];
+			while($files)
+			{
+				if(!$file = array_shift($files))
+				{
+					if($total_size          > self::SIZE_LIMIT
+					|| time() - $start_time > $this->_getTimeLimit())
+					{
+						$this->line('pass=' . (is_array($files) ? count($files) : (int)$files));
+						break;
+					}
+					$files = $this->_searchTargetFiles(self::S3_RAW_PREFIX);
+					foreach($files as $key => $file)
+					{
+						if(isset($skip_files[$file]))
+						{
+							unset($files[$key]);
+						}
+					}
+					// $this->_debugMemoryUsage();
+					if(count($files) < self::MIN_SEARCH_FILES
+					|| !($file = array_shift($files)))
+					{
+						if($files)
+						{
+							$this->line('pass=' . (string)(count($files) + ($file ? 1 : 0)));
+						}
+						break;
+					}
+					$this->info('find=' . (string)(count($files) + 1));
+				}
+				elseif($total_size        > self::SIZE_LIMIT * self::FORCE_INTRRUPTION_RATE
+				|| (time() - $start_time) > $this->_getTimeLimit() * self::FORCE_INTRRUPTION_RATE)
+				{
+					// $this->_debugInsertEOL();
+					$this->warn('warning : force interruption');
+					$this->line('pass=' . (string)(count($files) + 1));
+					break;
+				}
+
+				// $this->_debugInsertEOL();
+				$this->line($file);
+				try
+				{
+					$next_size = $this->_s3->size($file);
+				}
+				catch(\Exception $e)
+				{
+					$this->warn('file already moved : ' . $file);
+					$skip++;
+					$skip_files[$file] = true;
+					continue;
+				}
+				if(!$next_size
+				|| $total_size + $next_size > self::SIZE_LIMIT)
+				{
+					$this->warn('skipping : ' . $file);
+					$skip++;
+					$skip_files[$file] = true;
+					continue;
+				}
+
+				$sth = $pdo->prepare('SELECT `status` FROM `s3_to_bigquery_sb_logs` WHERE `s3_key` IN (?)');
+				$sth->execute([substr($file, 0, 512)]);
+				if(($status = $sth->fetchColumn())
+				&& $status != self::STATUS_NEW)
+				{
+					$this->warn('skipping : ' . $file);
+					usleep(mt_rand(0, 1000000));
+					$skip++;
+					$skip_files[$file] = true;
+					continue;
+				}
+
+				if(!$status)
+				{
+					$sth = $pdo->prepare('INSERT IGNORE INTO `s3_to_bigquery_sb_logs` (`s3_key`) VALUES (?)');
+					$sth->execute([substr($file, 0, 512)]);
+				}
+
+				try
+				{
+					$pdo->beginTransaction();
+
+					$sth = $pdo->prepare('SELECT `status` FROM `s3_to_bigquery_sb_logs` WHERE `s3_key` = ? FOR UPDATE');
+					$sth->execute([substr($file, 0, 512)]);
+					if(!($status = $sth->fetchColumn())
+					|| $status != self::STATUS_NEW
+					|| !($data = $this->_s3->get($file))
+					|| !starts_with($file, self::S3_RAW_PREFIX))
+					{
+						$this->warn('skipping : ' . $file);
+						$pdo->commit();
+						usleep(mt_rand(200000, 500000));
+						$skip++;
+						$skip_files[$file] = true;
+						continue;
+					}
+
+					$total_size += $next_size;
+					$this->_s3->move($file, self::S3_BACKUP_PREFIX . str_after($file, self::S3_RAW_PREFIX));
+					usleep(500000);
+
+					$sth = $pdo->prepare('UPDATE `s3_to_bigquery_sb_logs` SET `status` = ? WHERE `s3_key` = ?');
+					$sth->execute([self::STATUS_LOCKED, substr($file, 0, 512)]);
+					$pdo->commit();
+				}
+				catch(\Exception $e)
+				{
+					$pdo->rollback();
+					$this->error('error : ' . $file . ' message:' . $e->getMessage() . '(' . $e->getFile() . ':' . $e->getLine() . ')');
+					$sth = $pdo->prepare('UPDATE `s3_to_bigquery_sb_logs` SET `error` = 1 WHERE `s3_key` = ?');
+					$sth->execute([substr($file, 0, 512)]);
+					usleep(mt_rand(1000000, 3000000));
+					$failure++;
+					$skip_files[$file] = true;
+					continue;
+				}
+
+				$data = explode("\n", $data);
+				if(count($data) <= 1)
+				{
+					$this->error('error : not LF : ' . $file);
+					$data = explode("\r", reset($data));
+				}
+				// fputcsv($fp, array_keys($fields), ",", '"', $fputcsv_escape);
+				$data[0] = preg_replace('/^' . pack('H*', 'EFBBBF') . '/u', '', ltrim($data[0]), 1);
+				// $this->_debugMemoryUsage();
+				$this->line('lines=' . count($data));
+				$rows = 0;
+				foreach($data as $line_key => $line_raw)
+				{
+					if(!$line_raw = trim($line_raw))
+					{
+						if(count($data) > $line_key + 1)
+						{
+							$this->warn('warning : invalid line : ' . $file . '(' . $line_key . ')');
+						}
+						continue;
+					}
+					if(!($line = json_decode($line_raw, true, 512, JSON_BIGINT_AS_STRING))
+					|| !isset($line['tag']))
+					{
+						$this->warn('table tag missing ' . $file . '(' . $line_key . ')');
+						continue;
+					}
+
+					$table_id = $line['tag'];
+					if(($pos = strrpos($table_id, '.')) !== false)
+					{
+						$table_id = trim(substr($table_id, $pos + 1));
+					}
+
+					if(!isset($bq_tables[$table_id]))
+					{
+						$bq_tables[$table_id] = $this->_createBqTable();
+						$bq_tables[$table_id]['table']  = $bq_dataset->table($table_id); // ←ここで500エラー食らったのでいつか例外処理いれる
+						$bq_tables[$table_id]['schema'] = $bq_tables[$table_id]['table']->info()['schema'];
+					}
+
+					if($bq_tables[$table_id])
+					{
+						$line = $this->_applySchema($bq_tables[$table_id]['schema']['fields'], $line, $line_raw);
+						fputcsv($bq_tables[$table_id]['temp_fp'], $line, ",", '"', $fputcsv_escape);
+						$rows++;
+					}
+				}
+
+				$this->info('rows=' . $rows);
+
+				$sth = $pdo->prepare('UPDATE `s3_to_bigquery_sb_logs` SET `status` = ? WHERE `s3_key` = ?');
+				$sth->execute([self::STATUS_FINISHED, substr($file, 0, 512)]);
+				$last_file = $file;
+				if($rows)
+				{
+					$total_rows += $rows;
+				}
+				$success++;
+			}
+			$format_finished_time = time();
+			// $this->_debugInsertEOL();
+			$this->info('total_rows=' . $total_rows);
+			// $this->_debugMemoryUsage();
+
+			if(!$total_rows)
+			{
+				return;
+			}
+
+			foreach($bq_tables as $table_id => $bq_table)
+			{
+				$bq_tables[$table_id]['table']  = $bq_dataset->table($table_id); // ←ここで500エラー食らったのでいつか例外処理いれる
+				$bq_tables[$table_id]['schema'] = $bq_tables[$table_id]['table']->info()['schema'];
+			}
+			$this->line('format_time  : ' . (string)($format_finished_time - $start_time));
+
+			$this->info('[send] ' . (new \DateTime())->format('Y-m-d H:i:s.u'));
+			foreach($bq_tables as $table_id => $bq_table)
+			{
+				$this->line('table_put=' . $table_id);
+				$check_transaction = false;
+				$filesize = 0;
+
+				if(!$bq_table['temp_fp']
+				|| empty($filesize = fstat($bq_table['temp_fp'])['size']))
+				{
+					$this->line('empty bq_table : ' . $table_id);
+				}
+				else
+				{
+					$sth = $pdo->prepare('SELECT 1 FROM `s3_to_bigquery_load_files` WHERE `table_id` = ?');
+					$sth->execute([$table_id]);
+					if(!$sth->fetchColumn())
+					{
+						$sth = $pdo->prepare('INSERT IGNORE INTO `s3_to_bigquery_load_files` (`table_id`) VALUES (?)');
+						$sth->execute([$table_id]);
+					}
+
+					if((int)$filesize >= (isset(self::EX_LOGS[$table_id]) ? self::EX_LOGS[$table_id] : self::SEND_CSV_SIZE_MIN))
+					{
+						rewind($bq_table['temp_fp']);
+						file_put_contents($bq_table['temp_path'] = self::getCsvPath($table_id, $this->_uuid), $bq_table['temp_fp'], FILE_APPEND);
+						fclose($bq_table['temp_fp']);
+					}
+					else
+					{
+						$check_transaction = true;
+					}
+				}
+
+				while($check_transaction)
+				{
+					rewind($bq_table['temp_fp']);
+
+					$csv_path = null;
+					try
+					{
+						$pdo->beginTransaction();
+
+						$sth = $pdo->prepare('SELECT `process_uuid` FROM `s3_to_bigquery_load_files` WHERE `table_id` = ? FOR UPDATE');
+						$sth->execute([$table_id]);
+						if($process_uuid = $sth->fetchColumn())
+						{
+							file_put_contents($csv_path = self::getCsvPath($table_id, $process_uuid), $bq_table['temp_fp'], FILE_APPEND);
+						}
+						elseif($process_uuid === null)
+						{
+							file_put_contents($csv_path = self::getCsvPath($table_id, $this->_uuid), $bq_table['temp_fp'], FILE_APPEND);
+
+							$sth = $pdo->prepare('UPDATE `s3_to_bigquery_load_files` SET `process_uuid` = ? WHERE `table_id` = ?');
+							$sth->execute([$this->_uuid, $table_id]);
+						}
+						else
+						{
+							throw new \Exception('error : select for update failure');
+						}
+						clearstatcache(true, $csv_path);
+						if((int)($filesize = filesize($csv_path)) >= (isset(self::EX_LOGS[$table_id]) ? self::EX_LOGS[$table_id] : self::SEND_CSV_SIZE_MIN)
+						&& rename($csv_path, self::getCsvPath($table_id, $this->_uuid . '_rename', true)))
+						{
+							clearstatcache(true, $csv_path);
+							$bq_table['temp_path'] = self::getCsvPath($table_id, $this->_uuid . '_rename', true);
+							$this->info('standby=' . $table_id . ' : ' . $filesize);
+						}
+						$pdo->commit();
+						fclose($bq_table['temp_fp']);
+						break;
+					}
+					catch(\Exception $e)
+					{
+						$pdo->rollback();
+						if($csv_path
+						|| !is_resource($bq_table['temp_fp']))
+						{
+							$this->error('error : stream copy failure ' . $csv_path);
+							throw $e;
+						}
+						$project_exceeded_wait = self::BIGQUERY_WAIT_DEFAULT;
+						$this->warn('warning : csv lock failure ... wait ' . $project_exceeded_wait . ' sec');
+						sleep($project_exceeded_wait);
+						continue;
+					}
+
+				}
+
+				$retry_count = 0;
+				$search_time = time();
+				while($bq_table['temp_path'])
+				{
+					$retry_count++;
+					try
+					{
+						clearstatcache(true, $bq_table['temp_path']);
+						$load_config = $bq_table['table']->load(fopen($bq_table['temp_path'], 'rb'))
+														->ignoreUnknownValues(false)
+														->allowJaggedRows(false)
+														->createDisposition('CREATE_NEVER')
+														->writeDisposition('WRITE_APPEND')
+														->quote('"')
+														->schemaUpdateOptions([])
+														->fieldDelimiter(',')
+														->skipLeadingRows(0)
+														->allowQuotedNewlines(true)
+														->autodetect(false)
+														//->schema($bq_table['schema'])
+														->encoding('UTF-8')
+														->sourceFormat('CSV');
+														// ->maxBadRecords(5);
+						// $this->_debugMemoryUsage();
+						$this->line('table_job=' . $table_id);
+						// dump($load_config);
+						$job = $bq_table['table']->runJob($load_config);
+						$backoff = new ExponentialBackoff(100);
+						$backoff->execute(function () use ($job) {
+							$job->reload();
+							if (!$job->isComplete()) {
+								throw new \Exception('Job has not yet completed', 500);
+							}
+						});
+					}
+					catch(\Exception $e)
+					{
+						if($e->getMessage() == 'Service Unavailable'
+						|| $e->getMessage() == 'Bad Gateway'
+						|| $e->getMessage() == 'Internal Server Error'
+						|| $e->getMessage() == 'Gateway Timeout'
+						|| $e->getCode()    == 504
+						|| $e->getCode()    == 503
+						|| $e->getCode()    == 502
+						|| $e->getCode()    == 500)
+						{
+							$project_exceeded_wait = self::BIGQUERY_WAIT_DEFAULT + $retry_count;
+							$this->warn('warning : http request failure ... wait ' . $project_exceeded_wait . ' sec');
+							sleep($project_exceeded_wait);
+							continue;
+						}
+						elseif($e->getMessage() == 'Forbidden'
+						|| $e->getCode()        == 403)
+						{
+							$project_exceeded_wait = (self::BIGQUERY_WAIT_DEFAULT + $retry_count) * self::MAX_RUN_PROCS;
+							$this->warn('warning : bigquery resource limit ... wait ' . $project_exceeded_wait . ' sec');
+							sleep($project_exceeded_wait);
+							continue;
+						}
+						$this->error('error exception : ' . var_export($e));
+						throw $e;
+					}
+
+					if(isset($job->info()['status']['errorResult']))
+					{
+						$this->warn('warning : ' . $job->info()['status']['errorResult']['reason']);
+
+						$all_exceeded_num   = 1;
+						$table_exceeded_num = 1;
+						$project_exceeded_wait = self::BIGQUERY_WAIT_DEFAULT;
+						$table_id_prefix = substr($table_id, 0, 512);
+						$sth = $pdo->prepare('SELECT COUNT(1) `all`, COUNT(`target` = ? OR NULL) `table` FROM `s3_to_bigquery_exceeded` WHERE `key` = ? AND `timestamp` > ?');
+						$sth->execute([$table_id_prefix, self::JOB_EXCEEDED_KEY, time()]);
+						if($result = $sth->fetch(\PDO::FETCH_ASSOC))
+						{
+							$all_exceeded_num   = (int)$result['all']   ?: 1;
+							$table_exceeded_num = (int)$result['table'] ?: 1;
+						}
+
+						if($job->info()['status']['errorResult']['reason'] == 'quotaExceeded')
+						{
+							$project_exceeded_wait = (int)max((24 * 60 * 60) / (self::BIGQUERY_PROJECT_DAY_LIMIT / $all_exceeded_num),
+																(24 * 60 * 60) / (self::BIGQUERY_TABLE_DAY_LIMIT   / $table_exceeded_num), self::BIGQUERY_WAIT_DEFAULT);
+							$project_exceeded_wait = min($project_exceeded_wait, (self::BIGQUERY_WAIT_DEFAULT + $retry_count) * self::MAX_RUN_PROCS);
+
+							$uuid_suffix = str_split($this->_uuid, 32);
+							$uuid_prefix = array_shift($uuid_suffix);
+							$uuid_suffix = implode('', $uuid_suffix) . '_';
+
+							while(++$retry_count)
+							{
+								$sth = $pdo->prepare('INSERT INTO `s3_to_bigquery_exceeded` (`uuid`, `key`, `target`, `timestamp`) '
+													.'SELECT * FROM (SELECT `uuid`, ? `key`, ? `target`, ? `timestamp` FROM `s3_to_bigquery_exceeded` WHERE `key` = ? AND `timestamp` < ? LIMIT 1) `t` '
+													.'UNION ALL (SELECT ? `uuid`, ? `key`, ? `target`, ? `timestamp`) LIMIT 1 '
+													.'ON DUPLICATE KEY UPDATE `uuid` = ?, `target` = ?, `timestamp` = ?');
+								$timestamp = (time() + $project_exceeded_wait);
+								$uuid = $uuid_suffix . $retry_count;
+								if(strlen($uuid_prefix . $uuid) > 64)
+								{
+									$uuid = substr(md5($uuid), 0, 32);
+								}
+								$uuid = substr($uuid_prefix . $uuid, 0, 64);
+								$args = [self::JOB_EXCEEDED_KEY, $table_id_prefix, $timestamp, self::JOB_EXCEEDED_KEY, $search_time,
+										$uuid, self::JOB_EXCEEDED_KEY, $table_id_prefix, $timestamp,
+										$uuid, $table_id_prefix, $timestamp];
+								if($sth->execute($args))
+								{
+									break;
+								}
+								$this->warn('warning : retry insert ... wait ' . self::BIGQUERY_WAIT_DEFAULT . ' sec');
+								sleep(self::BIGQUERY_WAIT_DEFAULT);
+							}
+							$project_exceeded_wait += $all_exceeded_num;
+							$this->warn('warning : limit exceeded ... wait ' . $project_exceeded_wait . ' sec');
+							$this->line('waiting_files=' .  $all_exceeded_num . '(' . $table_exceeded_num . ')');
+							sleep($project_exceeded_wait);
+							continue;
+						}
+						elseif($job->info()['status']['errorResult']['reason'] == 'rateLimitExceeded')
+						{
+							$project_exceeded_wait = mt_rand(1000000, $all_exceeded_num * 1000000 * $retry_count);
+							$project_exceeded_wait = min($project_exceeded_wait, (self::BIGQUERY_WAIT_DEFAULT + $retry_count) * self::MAX_RUN_PROCS);
+							$this->warn('warning : limit exceeded ... wait ' . sprintf('%.2f', ($project_exceeded_wait / 1000000)) . ' sec');
+							$this->line('waiting_files=' .  $all_exceeded_num . '(' . $table_exceeded_num . ')');
+							usleep($project_exceeded_wait);
+							continue;
+						}
+						elseif($job->info()['status']['errorResult']['reason'] == 'backendError'
+						|| $job->info()['status']['errorResult']['reason']     == 'internalError'
+						|| $job->info()['status']['errorResult']['reason']     == 'badGateway')
+						{
+							$project_exceeded_wait = min($all_exceeded_num, self::BIGQUERY_WAIT_DEFAULT) + $retry_count;
+							$this->warn('warning : temporary failure response ... wait ' . $project_exceeded_wait . ' sec');
+							$this->line('waiting_files=' .  $all_exceeded_num . '(' . $table_exceeded_num . ')');
+							sleep($project_exceeded_wait);
+							continue;
+						}
+						$this->error('error : ' . var_export($job->info()));
+						sleep(self::BIGQUERY_TIMEOUT);
+						continue;
+					}
+					else
+					{
+						$this->info('send_rows=' . $job->info()['statistics']['load']['outputRows']);
+					}
+
+					if(!empty($bq_table['temp_path']))
+					{
+						clearstatcache(true, $bq_table['temp_path']);
+						if(file_exists($bq_table['temp_path']))
+						{
+							unlink($bq_table['temp_path']);
+							if(is_resource($bq_table['temp_fp']))
+							{
+								fclose($bq_table['temp_fp']);
+							}
+						}
+					}
+					break;
+				}
+			}
+
+			// $this->_debugInsertEOL();
+			$send_finished_time = time();
+			$send_time          = $send_finished_time - $format_finished_time;
+			$this->info('s3 : success=' . $success . ', skip=' . $skip . ', failure=' . $failure);
+			$this->line('conbine_and_run_job : ' . $send_time . ' sec');
+			$this->line(sprintf('total_received_size : %.2f MiB', $total_size  / 1024 / 1024));
+			$this->line(sprintf('peak_memory_consume : %.2f MiB', memory_get_peak_usage() / 1024 / 1024));
+
+			if(self::BIGQUERY_TIMEOUT / 2 < $send_time)
+			{
+				$this->warn('warning : request time to bigquery ' . (int)$send_time . ' sec');
+				return;
+			}
+
+			if(!$this->_checkContinue())
+			{
+				return;
+			}
+
+			$inputs = [];
+			foreach($this->_storage_config as $key => $value)
+			{
+				if(!$key
+				|| !$value
+				|| !$this->hasOption(str_start(kebab_case(trim($key)), 's3-')))
+				{
+					continue;
+				}
+				$inputs[] = $value;
+			}
+			foreach($this->_bigquery_config as $key => $value)
+			{
+				if(!$key
+				|| !$value
+				|| !$this->hasOption(str_start(kebab_case(trim($key)), 'bq-')))
+				{
+					continue;
+				}
+				$inputs[] = $value;
+			}
+
+			$args = '';
+			if($this->_debug
+			&& $this->option('debug'))
+			{
+				$args += ' -d';
+			}
+
+			$log_path = storage_path('logs/s3-to-bq_');
+			$uuid     = substr(strtr(rtrim(base64_encode(pack("H*", uniqid(md5($last_file . $this->_uuid)))), '='), '+/', '-_'), 0, 32);
+
+			$start_num = 0;
+			$procs_num = self::getPhpProcessNum();
+			$max_num   = min($success, self::MAX_RUN_PROCS);
+			while($procs_num + $start_num++ < $max_num)
+			{
+				$process_uuid = $uuid . '_' . $start_num;
+				$artisan = base_path('artisan s3_to_bigquery' . $args . ' --uuid=' . $process_uuid . ' >> ' . $log_path . '_' . date('Ymd') . '_' . $process_uuid . '.log');
+				$child = new Process(PHP_BINARY . ' ' . $artisan . ' &', null, [self::GCP_KEY_PATH => $this->_bigquery_config['keyFilePath']]);
+				foreach($inputs as $input)
+				{
+					$child->setInput($input);
+				}
+				$child->start();
+				// $this->_debugInsertEOL();
+				$this->info('[start] ' . (new \DateTime())->format('Y-m-d H:i:s.u'));
+				usleep(mt_rand(500000, 1000000));
+				if(!$this->_checkContinue())
+				{
+					break;
+				}
+			}
+			$sth = $pdo->prepare('UPDATE `s3_to_bigquery_processes` SET `status` = ? WHERE `process_uuid` = ?');
+			$sth->execute([self::STATUS_FINISHED, $this->_uuid]);
+		}
+		catch(\Exception $e)
+		{
+			$sth = $pdo->prepare('UPDATE `s3_to_bigquery_processes` SET `status` = ?, `error` = ? WHERE `process_uuid` = ?');
+			$sth->execute([self::STATUS_TERMINATED, $pdo->quote($e->__toString()), $this->_uuid]);
+			$this->error('error : ' . $this->_uuid . ' message:' . $e->getMessage() . '(' . $e->getFile() . ':' . $e->getLine() . ')');
+		}
+
+		foreach($bq_tables as $bq_table)
+		{
+			if($bq_table
+			&& !empty($bq_table['temp_path'])
+			&& file_exists($bq_table['temp_path']))
+			{			
+				clearstatcache(true, $bq_table['temp_path']);
+				if(file_exists($bq_table['temp_path']))
+				{
+					unlink($bq_table['temp_path']);
+				}
+			}
+		}
+
+		system('uptime' . PHP_EOL);
+	}
+
+	private function _applySchema(array $fields, array $line, string $line_raw) : array
+	{
+		$result    = [];
+		$extra_key = null;
+		foreach($fields as $key => $field)
+		{
+			if($field['name'] == self::RAW_FIELD_NAME)
+			{
+				$result[] = $line_raw;
+				continue;
+			}
+			if($field['name'] == self::EXTRA_FIELD_NAME)
+			{
+				$result[]  = '{}';
+				$extra_key = $key;
+				continue;
+			}
+			if(isset($line[$field['name']]))
+			{
+				$result[] = $this->_preFormatData($line[$field['name']], $field['type']);
+				array_pull($line, $field['name']);
+				continue;
+			}
+			$result[] = '';
+		}
+		if($extra_key)
+		{
+			array_splice($result, $extra_key, 1, json_encode($line ?: new \stdClass()));
+		}
+		return $result;
+	}
+
+	private function _preFormatData($value, string $type)
+	{
+		switch(true)
+		{
+			case $value === null:
+				return '';
+			break;
+			case is_array($value):
+			case is_object($value):
+				if(($json = json_encode($value)) === false
+				&& ($json = json_encode(trim($value))) === false)
+				{
+					return '';
+				}
+				return $json;
+			break;
+			case $type == 'TIMESTAMP':
+				if($value
+				&& is_numeric($value)
+				&& (int)$value)
+				{
+					return (new \DateTime())->setTimezone(new \DateTimeZone('UTC'))->setTimestamp((int)$value)->format('Y-m-d H:i:s');
+				}
+				if($datetime = \DateTime::createFromFormat('Y.m.d-H.i.s', $value))
+				{
+					return $datetime->setTimezone(new \DateTimeZone('UTC'))->format('Y-m-d H:i:s');
+				}
+				if(strtotime($value))
+				{
+					return (new \DateTime($value))->setTimezone(new \DateTimeZone('UTC'))->format('Y-m-d H:i:s');
+				}
+				if($value === 0
+				|| trim($value) === '0')
+				{
+					return '1970-01-01 00:00:00';
+				}
+			break;
+			case $type == 'INTEGER':
+				if(!is_numeric($value))
+				{
+					return '';
+				}
+				if((int)$value)
+				{
+					return (int)$value;
+				}
+				if($value === 0
+				|| trim($value) === '0')
+				{
+					return 0;
+				}
+				return '';
+			case $type == 'FLOAT':
+			case $type == 'NUMERIC':
+				if(!is_numeric($value))
+				{
+					return '';
+				}
+				if((float)$value)
+				{
+					return $value;
+				}
+				if($value === 0.0
+				|| trim($value) === '0.0'
+				|| $value === 0
+				|| trim($value) === '0')
+				{
+					return 0.0;
+				}
+				return '';
+			break;
+			case $type == 'STRING':
+				return (string)$value;
+			break;
+			default:
+				return $value;
+			break;
+		}
+		return $value;
+	}
+
+	private function _getTimeLimit()
+	{
+		if($this->option('CRON'))
+		{
+			return self::CRON_TIME_LIMIT;
+		}
+		return self::TIME_LIMIT;
+	}
+
+	private function _searchTargetFiles(string $path) : array
+	{
+		$dirs = $this->_s3->directories($path);
+		if($dirs)
+		{
+			shuffle($dirs);
+			foreach($dirs as $dir_path)
+			{
+				if($files = $this->_searchTargetFiles($dir_path))
+				{
+					return $files;
+				}
+			}
+		}
+		if($files = $this->_s3->files($path))
+		{
+			return $files;
+		}
+		if($this->_debug)
+		{
+			print('.');
+		}
+		return [];
+	}
+
+	private function _checkContinue()
+	{
+		usleep(mt_rand(0, 500000));
+
+		$proc_num                      = self::getPhpProcessNum();
+		list($mem_use_rate, $mem_free) = self::getPhpMemory();
+		$disk_use_rate                 = $this->_getPrivateDiskUseRate();
+
+		$check_process_num      = (int)$proc_num / self::MAX_RUN_PROCS * 100;
+		$check_memory_usage     = (int)$mem_use_rate / self::MEM_LIMIT_RATE * 100;
+		// $check_memory_available = ((int)$avg_rss * self::MEM_MARGIN_PROCS) / (int)$mem_free * 100;
+		$check_disk_usage       = (int)$disk_use_rate / self::DISK_LIMIT_RATE * 100;
+
+		// $load_average           = exec('uptime | sed -e\'s/^.* load average: *\(.*\)$/\\1/g\' | sed -e\'s/ //g\'');
+
+		while(!$fp = fopen(self::HEALTH_CHECK_LOG_PATH, 'ab'))
+		{
+			usleep(100000);
+		}
+		fwrite($fp, sprintf('%.2f	%.2f	%.2f', $check_process_num, $check_memory_usage, $check_disk_usage) . PHP_EOL);
+		fclose($fp);
+
+		if($check_process_num      >= 120
+		|| $check_memory_usage     >= 100   
+		// || $check_memory_available >= 100
+		|| $check_disk_usage       >= 100)
+		{
+			$this->warn('warning : ' . (int)$mem_use_rate . '% memory usage, ' . (int)$disk_use_rate . '% disk useage');
+			return false;
+		}
+		return true;
+	}
+
+	private function _getPrivateDiskUseRate():float
+	{
+		// exec("df -P | sed -e's/^.* \([0-9]*\). .*$/\\1/g' | sort -nr | head -1");
+		$total = disk_total_space(storage_path());
+		return ($total - disk_free_space(storage_path())) / $total * 100; 
+	}
+
+	private function _debugMemoryUsage() : void
+	{
+		if(!$this->_debug)
+		{
+			return;
+		}
+		$this->comment('memory_usage : ' . memory_get_usage());
+	}
+
+	private function _debugInsertEOL() : void
+	{
+		if(!$this->_debug)
+		{
+			return;
+		}
+		$this->comment('');
+	}
+
+	private function _createBqTable(bool $is_temp = true)
+	{
+		$bq_table = self::DEFAULT_BQ_TABLE;
+		$bq_table['temp_fp'] = $is_temp ? fopen('php://memory', 'r+b')/*fopen('php://temp/maxmemory:' . self::TEMP_MAX_MEMORY, 'w+b')*/ : false;
+		return $bq_table;
+	}
+
+	public static function getPhpMemory():array
+	{
+		return explode(',', exec('free -tk | grep Total | awk \'{print ($3/($2?$2:1)*100)","$4}\''));
+	}
+
+	public static function getPhpProcess():array
+	{
+		return explode(',', exec('ps -ww ax o comm= o rss= | grep "^php[0-9 ]\\?" | awk \'{v+=$2;n++}END{print (n?n:0)","(n?v/n:0)}\''));
+	}
+
+	public static function getPhpProcessNum():string
+	{
+		// exec('fuser -v ' . PHP_BINARY . ' 2>&1 | grep "php[0-9 ]\\?" | wc -l')
+		return exec('ps -ww ax o comm= o pid= | grep "^php[0-9 ]\\?" | wc -l');
+	}
+
+	public static function getCsvPath(string $table_id, string $process_uuid, bool $send_flg = false):string
+	{
+		return storage_path('app/s3_to_bq/' . ($send_flg ? 'send/' : '') . $table_id . '_' . $process_uuid . '.csv');
+	}
+}

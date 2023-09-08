@@ -1,0 +1,333 @@
+SB_LOG_client_action:
+  - request_header_location
+SB_LOG_character_plan_delete:
+  - request_header_location
+SB_LOG_mount_imagine_dismount:
+  - request_header_location
+SB_LOG_mount_imagine_mount:
+  - request_header_location
+SB_LOG_user_action_dismount:
+  - request_header_location
+SB_LOG_user_action_mount:
+  - request_header_location
+SB_LOG_item_craft:
+  - request_header_location
+SB_LOG_liquid_memory_use:
+  - request_header_location
+  - character_class
+SB_LOG_liquid_memory_accumulate:
+  - request_header_location
+  - character_class
+SB_LOG_soul_rank_up:
+  - request_header_location
+  - character_class
+SB_LOG_skill_acquisition:
+  - request_header_location
+  - character_class
+SB_LOG_weapon_craft:
+  - request_header_location
+  - character_class
+SB_LOG_weapon_unlock_slot:
+  - request_header_location
+  - character_class
+SB_LOG_imagine_craft:
+  - request_header_location
+  - character_class
+SB_LOG_weapon_fusion:
+  - request_header_location
+  - character_class
+SB_LOG_login:
+  - request_header_location
+SB_LOG_logout:
+  - request_header_location
+SB_LOG_character_create:
+  - create_param
+  - request_header_location
+SB_LOG_character_delete:
+  - request_header_location
+SB_LOG_character_restore:
+  - request_header_location
+SB_LOG_tutorial_step:
+  - request_header_location
+SB_LOG_map_pre_join:
+  - request_header_location
+SB_LOG_map_join:
+  - spawn_point
+  - request_header_location
+  - character_class
+SB_LOG_send_mail_error:
+  - request_header_location
+SB_LOG_start_send_job:
+  - request_header_location
+SB_LOG_finish_send_job:
+  - request_header_location
+SB_LOG_map_conn:
+  - request_header_location
+SB_LOG_map_traverse_interact:
+  - request_header_location
+SB_LOG_character_ban:
+  - request_header_location
+SB_LOG_character_class_add_exp:
+  - request_header_location
+  - character_class
+SB_LOG_character_dungeon_start:
+  - skill_data
+  - request_header_location
+  - spawn_point
+  - character_class
+SB_LOG_character_dungeon_result:
+  - request_header_location
+  - character_class
+SB_LOG_character_item_update:
+  - request_header_location
+  - character_class
+SB_LOG_character_buy_item:
+  - request_header_location
+  - character_class
+  - item_list
+SB_LOG_character_sell_item:
+  - request_header_location
+  - character_class
+SB_LOG_character_use_item:
+  - request_header_location
+  - character_class
+SB_LOG_character_add_engram:
+  - request_header_location
+SB_LOG_character_levelup:
+  - request_header_location
+SB_LOG_quest_start:
+  - request_header_location
+SB_LOG_quest_update:
+  - request_header_location
+  - progress
+SB_LOG_quest_cancel:
+  - request_header_location
+SB_LOG_quest_complete:
+  - request_header_location
+SB_LOG_follow_add:
+  - request_header_location
+SB_LOG_follow_remove:
+  - request_header_location
+SB_LOG_profile_update:
+  - request_header_location
+  - communicate
+  - now_communicate
+SB_LOG_character_status:
+  - request_header_location
+SB_LOG_item_equip:
+  - request_header_location
+  - character_class
+SB_LOG_arts_equip:
+  - request_header_location
+SB_LOG_class_change:
+  - request_header_location
+SB_LOG_character_defeat_enemy:
+  - request_header_location
+  - items
+  - character_class
+SB_LOG_character_save_gather_point:
+  - request_header_location
+  - items
+SB_LOG_set_option:
+  - option
+  - request_header_location
+SB_LOG_request:
+  - request_header_location
+  - input
+SB_LOG_error:
+  - request_header_location
+SB_LOG_party_recruit_registration:
+  - request_header_location
+SB_LOG_party_recruit_join:
+  - request_header_location
+SB_LOG_party_recruit_close:
+  - request_header_location
+SB_LOG_reset_saved_gather_points:
+  - gather_point_ids
+  - request_header_location
+SB_LOG_blacklist_update:
+  - request_header_location
+SB_LOG_party_migration:
+  - request_header_location
+SB_LOG_casual_pve_room_ranking_score:
+  - request_header_location
+SB_LOG_save_appearance_weapon_sticker:
+  - request_header_location
+SB_LOG_remove_appearance_weapon_sticker:
+  - request_header_location
+SB_LOG_currency_history:
+  - request_header_location
+  - amount_paid
+SB_LOG_currency_purchase:
+  - request_header_location
+SB_LOG_character_add_money:
+  - request_header_location
+SB_LOG_character_money_history:
+  - request_header_location
+SB_LOG_birthday_update:
+  - request_header_location
+SB_LOG_batch_currency_delete_expired:
+  - request_header_location
+SB_LOG_batch_coin_delete_expired:
+  - request_header_location
+SB_LOG_adventurer_card_update:
+  - request_header_location
+SB_LOG_adventurer_card_send:
+  - request_header_location
+SB_LOG_contact_list_get:
+  - request_header_location
+SB_LOG_contact_list_remove:
+  - request_header_location
+SB_LOG_contact_list_update:
+  - request_header_location
+SB_LOG_friend_list_remove:
+  - request_header_location
+SB_LOG_like_send:
+  - request_header_location
+SB_LOG_like_receive:
+  - request_header_location
+SB_LOG_guild_create:
+  - request_header_location
+  - times
+  - styles
+SB_LOG_guild_change_data:
+  - request_header_location
+SB_LOG_guild_change_name:
+  - request_header_location
+SB_LOG_guild_change_comment:
+  - request_header_location
+SB_LOG_guild_change_style:
+  - request_header_location
+SB_LOG_guild_change_accepttype:
+  - request_header_location
+SB_LOG_guild_entry:
+  - request_header_location
+SB_LOG_guild_accept_member:
+  - request_header_location
+SB_LOG_guild_deny_member:
+  - request_header_location
+SB_LOG_guild_cancel_entry:
+  - request_header_location
+SB_LOG_guild_invitation:
+  - request_header_location
+SB_LOG_guild_accept_invitation:
+  - request_header_location
+SB_LOG_guild_deny_invitation:
+  - request_header_location
+SB_LOG_guild_cancel_invitation:
+  - request_header_location
+SB_LOG_guild_withdraw:
+  - request_header_location
+SB_LOG_guild_kick_member:
+  - request_header_location
+SB_LOG_guild_dissolution:
+  - request_header_location
+SB_LOG_guild_member_change_role:
+  - request_header_location
+SB_LOG_guild_exchange_authority:
+  - request_header_location
+SB_LOG_achievement_clear:
+  - request_header_location
+SB_LOG_second_password_registration:
+  - request_header_location
+SB_LOG_second_password_expired:
+  - request_header_location
+SB_LOG_second_password_reset:
+  - request_header_location
+SB_LOG_buy_season_pass:
+  - request_header_location
+SB_LOG_season_pass_complete_quest:
+  - request_header_location
+SB_LOG_season_pass_change_points:
+  - request_header_location
+SB_LOG_auto_order_quest_reload:
+  - request_header_location
+SB_LOG_get_season_pass_reward:
+  - request_header_location
+SB_LOG_theater_mode_playback_update:
+  - request_header_location
+SB_LOG_season_pass_rank_up:
+  - request_header_location
+SB_LOG_weapon_recycle:
+  - request_header_location
+  - character_class
+SB_LOG_weapon_tuning:
+  - request_header_location
+  - character_class
+SB_LOG_gasha_reward_receipt:
+  - reward_items
+  - bonus_items
+  - request_header_location
+SB_LOG_stamp_acquisition:
+  - stamp_ids
+  - request_header_location
+SB_LOG_craft_recipe_released:
+  - released_craft_recepi_list
+  - request_header_location
+SB_LOG_buff_npc_save:
+  - request_header_location
+SB_LOG_change_equipment_color:
+  - changed_item
+  - used_items
+  - request_header_location
+SB_LOG_aesthe_save_info:
+  - character_create
+  - request_header_location
+SB_LOG_aesthe_update_character:
+  - character_create
+  - request_header_location
+SB_LOG_character_assets_history:
+  - request_header_location
+SB_LOG_character_snapshot:
+  - character_class
+  - paid_stone_description
+  - request_header_location
+SB_LOG_photo_upload_image:
+  - request_header_location
+SB_LOG_photo_update_trimming:
+  - request_header_location
+SB_LOG_photo_reset_trimming:
+  - request_header_location
+SB_LOG_buy_character_slot:
+  - request_header_location
+SB_LOG_agree_to_terms_of_use:
+  - request_header_location
+SB_LOG_create_user_id:
+  - request_header_location
+SB_LOG_defense_battle:
+  - request_header_location
+  - character_class
+SB_LOG_login_bonus_update:
+  - request_header_location
+SB_LOG_character_generic_get:
+  - request_header_location
+SB_LOG_character_generic_remove:
+  - request_header_location
+SB_LOG_adboard_start:
+  - request_header_location
+SB_LOG_adboard_complete:
+  - request_header_location
+SB_LOG_adboard_reward:
+  - request_header_location
+SB_LOG_adboard_active:
+  - request_header_location
+SB_LOG_connectcoupon_issue:
+  - request_header_location
+SB_LOG_connectcoupon_use:
+  - request_header_location
+SB_LOG_character_item_used_update:
+  - request_header_location
+SB_LOG_character_item_lock_update:
+  - request_header_location
+SB_LOG_character_item_storage_update:
+  - request_header_location
+SB_LOG_auto_order_quest_complete:
+  - request_header_location
+SB_LOG_auto_order_quest_reward:
+  - request_header_location
+SB_LOG_character_change_name:
+  - request_header_location
+SB_LOG_mail_send:
+  - request_header_location
+SB_LOG_mail_receive:
+  - request_header_location

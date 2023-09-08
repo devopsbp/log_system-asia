@@ -1,0 +1,16 @@
+syntax = "proto2";
+option go_package = "proto/character_create";
+package character_create;
+import "google/protobuf/timestamp.proto";
+
+message CharacterCreateMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional string character_name = 3;
+    optional string create_param = 4;
+    optional sint32 class_type = 5;
+    optional sint32 slot_remaining = 6;
+    optional string request_header_location = 7;
+    optional google.protobuf.Timestamp log_time = 8;
+    optional string uuid = 9;
+}

@@ -1,0 +1,19 @@
+syntax = "proto2";
+option go_package = "proto/skill_acquisition";
+package skill_acquisition;
+import "google/protobuf/timestamp.proto";
+
+message SkillAcquisitionMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional string character_class = 3;
+    optional sint32 skill_id = 4;
+    optional string skill_id__name = 5;
+    optional sint32 skill_level = 6;
+    optional sint32 class_type = 7;
+    optional sint32 skill_type = 8;
+    optional sint32 skill_point_remain = 9;
+    optional string request_header_location = 10;
+    optional google.protobuf.Timestamp log_time = 11;
+    optional string uuid = 12;
+}

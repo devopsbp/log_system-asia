@@ -1,0 +1,18 @@
+syntax = "proto2";
+option go_package = "proto/season_pass_change_points";
+package season_pass_change_points;
+import "google/protobuf/timestamp.proto";
+
+message SeasonPassChangePointsMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional sint32 character_level = 3;
+    optional string season_id = 4;
+    optional string season_id__name = 5;
+    optional sint32 change_points = 6;
+    optional sint32 result_points = 7;
+    optional google.protobuf.Timestamp change_date = 8;
+    optional string request_header_location = 9;
+    optional google.protobuf.Timestamp log_time = 10;
+    optional string uuid = 11;
+}

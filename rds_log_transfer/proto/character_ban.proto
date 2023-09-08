@@ -1,0 +1,18 @@
+syntax = "proto2";
+option go_package = "proto/character_ban";
+package character_ban;
+import "google/protobuf/timestamp.proto";
+
+message CharacterBanMsg {
+    optional string admin_user_id = 1;
+    optional string target_user_id = 2;
+    optional string target_character_id = 3;
+    optional sint32 ban_type = 4;
+    optional sint32 ban_type2 = 5;
+    optional sint32 ranking_exclusion = 6;
+    optional google.protobuf.Timestamp ban_finished_at = 7;
+    optional sint32 ban_duration_type = 8;
+    optional string request_header_location = 9;
+    optional google.protobuf.Timestamp log_time = 10;
+    optional string uuid = 11;
+}

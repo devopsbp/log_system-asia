@@ -1,0 +1,19 @@
+syntax = "proto2";
+option go_package = "proto/imagine_craft";
+package imagine_craft;
+import "google/protobuf/timestamp.proto";
+
+message ImagineCraftMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional string character_class = 3;
+    optional string unique_id = 4;
+    optional sint32 imagine_id = 5;
+    optional string imagine_id__name = 6;
+    optional string request_header_location = 7;
+    optional sint32 perk_id = 8;
+    optional string perk_id__name = 9;
+    optional sint32 perk_value = 10;
+    optional google.protobuf.Timestamp log_time = 11;
+    optional string uuid = 12;
+}

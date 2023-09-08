@@ -1,0 +1,12 @@
+{
+  "require": {
+    "google/cloud-bigquery": "^1.16",
+    "google/cloud-core": "^1.36",
+    "google/cloud-secret-manager": "1.0.0",
+    "google/cloud-storage": "1.20.1",
+    "google/cloud-pubsub": "^1.39",
+    "cloudevents/sdk-php": "^1.0",
+    "google/cloud-functions-framework": "^1.1",
+    "ext-pdo": "*"
+  }
+}

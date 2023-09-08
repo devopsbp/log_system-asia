@@ -1,0 +1,7332 @@
+
+{"table_data": [
+ {
+    "table_name": "SB_LOG_client_action",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "action_id",
+        "type": "STRING"
+      },      {
+        "name": "message",
+        "type": "STRING"
+      },      {
+        "name": "CausedClass",
+        "type": "STRING"
+      },      {
+        "name": "NowType",
+        "type": "STRING"
+      },      {
+        "name": "NowData",
+        "type": "FLOAT"
+      },      {
+        "name": "IdealData1",
+        "type": "FLOAT"
+      },      {
+        "name": "IdealData2",
+        "type": "FLOAT"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_plan_delete",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "slot_remaining",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_mount_imagine_dismount",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id__name",
+        "type": "STRING"
+      },      {
+        "name": "unique_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_mount_imagine_mount",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id__name",
+        "type": "STRING"
+      },      {
+        "name": "unique_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_user_action_dismount",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id__name",
+        "type": "STRING"
+      },      {
+        "name": "unique_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_user_action_mount",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id__name",
+        "type": "STRING"
+      },      {
+        "name": "unique_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_item_craft",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id__name",
+        "type": "STRING"
+      },      {
+        "name": "unique_id",
+        "type": "STRING"
+      },      {
+        "name": "amount",
+        "type": "INTEGER"
+      },      {
+        "name": "is_great_success",
+        "type": "BOOLEAN"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_liquid_memory_use",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_class",
+        "type": "STRING"
+      },      {
+        "name": "liquid_memory_id",
+        "type": "INTEGER"
+      },      {
+        "name": "liquid_memory_type",
+        "type": "INTEGER"
+      },      {
+        "name": "liquid_memory_level",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_liquid_memory_accumulate",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_class",
+        "type": "STRING"
+      },      {
+        "name": "liquid_memory_id",
+        "type": "INTEGER"
+      },      {
+        "name": "liquid_memory_type",
+        "type": "INTEGER"
+      },      {
+        "name": "liquid_memory_level",
+        "type": "INTEGER"
+      },      {
+        "name": "before_accumulate_amount",
+        "type": "INTEGER"
+      },      {
+        "name": "after_accumulated_amount",
+        "type": "INTEGER"
+      },      {
+        "name": "add_accumulated_amount",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_soul_rank_up",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "adventurer_rank",
+        "type": "INTEGER"
+      },      {
+        "name": "class_level",
+        "type": "INTEGER"
+      },      {
+        "name": "character_class",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_skill_acquisition",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_class",
+        "type": "STRING"
+      },      {
+        "name": "skill_id",
+        "type": "INTEGER"
+      },      {
+        "name": "skill_id__name",
+        "type": "STRING"
+      },      {
+        "name": "skill_level",
+        "type": "INTEGER"
+      },      {
+        "name": "class_type",
+        "type": "INTEGER"
+      },      {
+        "name": "skill_type",
+        "type": "INTEGER"
+      },      {
+        "name": "skill_point_remain",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_weapon_craft",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_class",
+        "type": "STRING"
+      },      {
+        "name": "level",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id__name",
+        "type": "STRING"
+      },      {
+        "name": "ability_unlock",
+        "type": "INTEGER"
+      },      {
+        "name": "unique_id",
+        "type": "STRING"
+      },      {
+        "name": "vital_type",
+        "type": "INTEGER"
+      },      {
+        "name": "vital_value",
+        "type": "INTEGER"
+      },      {
+        "name": "is_great_success",
+        "type": "BOOLEAN"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_weapon_unlock_slot",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_class",
+        "type": "STRING"
+      },      {
+        "name": "unique_id",
+        "type": "STRING"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id__name",
+        "type": "STRING"
+      },      {
+        "name": "perk_id1",
+        "type": "INTEGER"
+      },      {
+        "name": "effect_values1",
+        "type": "STRING"
+      },      {
+        "name": "perk_id2",
+        "type": "INTEGER"
+      },      {
+        "name": "effect_values2",
+        "type": "STRING"
+      },      {
+        "name": "perk_id3",
+        "type": "INTEGER"
+      },      {
+        "name": "effect_values3",
+        "type": "STRING"
+      },      {
+        "name": "perk_id4",
+        "type": "INTEGER"
+      },      {
+        "name": "effect_values4",
+        "type": "STRING"
+      },      {
+        "name": "previous_unlocked_slot",
+        "type": "INTEGER"
+      },      {
+        "name": "used_ticket_id",
+        "type": "INTEGER"
+      },      {
+        "name": "used_ticket_amount",
+        "type": "INTEGER"
+      },      {
+        "name": "unlock_slot_no",
+        "type": "INTEGER"
+      },      {
+        "name": "after_unlocked_slot",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_imagine_craft",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_class",
+        "type": "STRING"
+      },      {
+        "name": "unique_id",
+        "type": "STRING"
+      },      {
+        "name": "imagine_id",
+        "type": "INTEGER"
+      },      {
+        "name": "imagine_id__name",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "perk_id",
+        "type": "INTEGER"
+      },      {
+        "name": "perk_id__name",
+        "type": "STRING"
+      },      {
+        "name": "perk_value",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_weapon_fusion",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_class",
+        "type": "STRING"
+      },      {
+        "name": "unique_id",
+        "type": "STRING"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id__name",
+        "type": "STRING"
+      },      {
+        "name": "perk_id1",
+        "type": "INTEGER"
+      },      {
+        "name": "effect_values1",
+        "type": "STRING"
+      },      {
+        "name": "perk_id2",
+        "type": "INTEGER"
+      },      {
+        "name": "effect_values2",
+        "type": "STRING"
+      },      {
+        "name": "perk_id3",
+        "type": "INTEGER"
+      },      {
+        "name": "effect_values3",
+        "type": "STRING"
+      },      {
+        "name": "perk_id4",
+        "type": "INTEGER"
+      },      {
+        "name": "effect_values4",
+        "type": "STRING"
+      },      {
+        "name": "present_unlocked_slot",
+        "type": "INTEGER"
+      },      {
+        "name": "used_item_unique_id",
+        "type": "STRING"
+      },      {
+        "name": "used_item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "used_support_item_id1",
+        "type": "INTEGER"
+      },      {
+        "name": "used_support_item_id2",
+        "type": "INTEGER"
+      },      {
+        "name": "fusion_slot_no",
+        "type": "INTEGER"
+      },      {
+        "name": "result_perk_id",
+        "type": "INTEGER"
+      },      {
+        "name": "result_effect_values",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_login",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "ip",
+        "type": "STRING"
+      },      {
+        "name": "platform",
+        "type": "INTEGER"
+      },      {
+        "name": "is_network_cafe",
+        "type": "BOOLEAN"
+      },      {
+        "name": "is_first_login",
+        "type": "BOOLEAN"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_logout",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "session_id",
+        "type": "STRING"
+      },      {
+        "name": "class_type",
+        "type": "INTEGER"
+      },      {
+        "name": "ip",
+        "type": "STRING"
+      },      {
+        "name": "is_network_cafe",
+        "type": "BOOLEAN"
+      },      {
+        "name": "client_exit_status",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_client_health_check",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "platform",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_create",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "create_param",
+        "type": "STRING"
+      },      {
+        "name": "class_type",
+        "type": "INTEGER"
+      },      {
+        "name": "slot_remaining",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_delete",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "slot_remaining",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_restore",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "slot_remaining",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_tutorial_step",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "tutorial_step",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_map_pre_join",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "to_map_name",
+        "type": "STRING"
+      },      {
+        "name": "to_session_id",
+        "type": "STRING"
+      },      {
+        "name": "from_map_name",
+        "type": "STRING"
+      },      {
+        "name": "selected_reason",
+        "type": "INTEGER"
+      },      {
+        "name": "party_id",
+        "type": "STRING"
+      },      {
+        "name": "same_place",
+        "type": "INTEGER"
+      },      {
+        "name": "another_place",
+        "type": "INTEGER"
+      },      {
+        "name": "party_count",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_map_join",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_class",
+        "type": "STRING"
+      },      {
+        "name": "totalPower",
+        "type": "STRING"
+      },      {
+        "name": "equips",
+        "type": "STRING"
+      },      {
+        "name": "spawn_point",
+        "type": "STRING"
+      },      {
+        "name": "passage_cost",
+        "type": "INTEGER"
+      },      {
+        "name": "zone_id",
+        "type": "STRING"
+      },      {
+        "name": "session_id",
+        "type": "STRING"
+      },      {
+        "name": "map_name",
+        "type": "STRING"
+      },      {
+        "name": "content_id",
+        "type": "STRING"
+      },      {
+        "name": "is_separation_party",
+        "type": "BOOLEAN"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_dead",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "map_name",
+        "type": "STRING"
+      },      {
+        "name": "location_x",
+        "type": "FLOAT"
+      },      {
+        "name": "location_y",
+        "type": "FLOAT"
+      },      {
+        "name": "location_z",
+        "type": "FLOAT"
+      },      {
+        "name": "cause",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_send_mail_error",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "sb_ret_code",
+        "type": "INTEGER"
+      },      {
+        "name": "sb_error_message",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_start_send_job",
+    "table_schema": [      {
+        "name": "time",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_finish_send_job",
+    "table_schema": [      {
+        "name": "time",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_party_cancel_invite",
+    "table_schema": [      {
+        "name": "party_id",
+        "type": "STRING"
+      },      {
+        "name": "party_type",
+        "type": "INTEGER"
+      },      {
+        "name": "leader_id",
+        "type": "STRING"
+      },      {
+        "name": "guest_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_map_conn",
+    "table_schema": [      {
+        "name": "map_name",
+        "type": "STRING"
+      },      {
+        "name": "one_minute_uu",
+        "type": "INTEGER"
+      },      {
+        "name": "max_conn",
+        "type": "INTEGER"
+      },      {
+        "name": "timestamp",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_map_traverse_interact",
+    "table_schema": [      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "traverse_point",
+        "type": "STRING"
+      },      {
+        "name": "game_content_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_ban",
+    "table_schema": [      {
+        "name": "admin_user_id",
+        "type": "STRING"
+      },      {
+        "name": "target_user_id",
+        "type": "STRING"
+      },      {
+        "name": "target_character_id",
+        "type": "STRING"
+      },      {
+        "name": "ban_type",
+        "type": "INTEGER"
+      },      {
+        "name": "ban_type2",
+        "type": "INTEGER"
+      },      {
+        "name": "ranking_exclusion",
+        "type": "INTEGER"
+      },      {
+        "name": "ban_finished_at",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "ban_duration_type",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_party_create",
+    "table_schema": [      {
+        "name": "party_id",
+        "type": "STRING"
+      },      {
+        "name": "party_type",
+        "type": "INTEGER"
+      },      {
+        "name": "leader_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_party_invite_accept",
+    "table_schema": [      {
+        "name": "party_id",
+        "type": "STRING"
+      },      {
+        "name": "party_type",
+        "type": "INTEGER"
+      },      {
+        "name": "leader_id",
+        "type": "STRING"
+      },      {
+        "name": "guest_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_party_invite_reject",
+    "table_schema": [      {
+        "name": "party_id",
+        "type": "STRING"
+      },      {
+        "name": "party_type",
+        "type": "INTEGER"
+      },      {
+        "name": "leader_id",
+        "type": "STRING"
+      },      {
+        "name": "guest_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_party_invite",
+    "table_schema": [      {
+        "name": "party_id",
+        "type": "STRING"
+      },      {
+        "name": "party_type",
+        "type": "INTEGER"
+      },      {
+        "name": "leader_id",
+        "type": "STRING"
+      },      {
+        "name": "guest_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_party_join",
+    "table_schema": [      {
+        "name": "party_id",
+        "type": "STRING"
+      },      {
+        "name": "party_type",
+        "type": "INTEGER"
+      },      {
+        "name": "join_member_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_party_kick_member",
+    "table_schema": [      {
+        "name": "party_id",
+        "type": "STRING"
+      },      {
+        "name": "party_type",
+        "type": "INTEGER"
+      },      {
+        "name": "kick_member_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_party_leave",
+    "table_schema": [      {
+        "name": "party_id",
+        "type": "STRING"
+      },      {
+        "name": "party_type",
+        "type": "INTEGER"
+      },      {
+        "name": "leave_member_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_party_promote_member",
+    "table_schema": [      {
+        "name": "party_id",
+        "type": "STRING"
+      },      {
+        "name": "party_type",
+        "type": "INTEGER"
+      },      {
+        "name": "new_leader_id",
+        "type": "STRING"
+      },      {
+        "name": "old_leader_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_party_release",
+    "table_schema": [      {
+        "name": "party_id",
+        "type": "STRING"
+      },      {
+        "name": "party_type",
+        "type": "INTEGER"
+      },      {
+        "name": "leader_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_party_update_data",
+    "table_schema": [      {
+        "name": "party_id",
+        "type": "STRING"
+      },      {
+        "name": "party_type",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_party_migration_execute",
+    "table_schema": [      {
+        "name": "party_id",
+        "type": "STRING"
+      },      {
+        "name": "party_type",
+        "type": "INTEGER"
+      },      {
+        "name": "leader_id",
+        "type": "STRING"
+      },      {
+        "name": "session_id",
+        "type": "STRING"
+      },      {
+        "name": "map_name",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_party_update_member_data",
+    "table_schema": [      {
+        "name": "party_id",
+        "type": "STRING"
+      },      {
+        "name": "party_type",
+        "type": "INTEGER"
+      },      {
+        "name": "update_member_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_treasure_box_pop",
+    "table_schema": [      {
+        "name": "treasure_object_id",
+        "type": "STRING"
+      },      {
+        "name": "treasure_tag",
+        "type": "STRING"
+      },      {
+        "name": "treasure_id",
+        "type": "INTEGER"
+      },      {
+        "name": "treasure_rarity",
+        "type": "INTEGER"
+      },      {
+        "name": "treasure_loc_x",
+        "type": "FLOAT"
+      },      {
+        "name": "treasure_loc_y",
+        "type": "FLOAT"
+      },      {
+        "name": "treasure_loc_z",
+        "type": "FLOAT"
+      },      {
+        "name": "pop_at",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_treasure_box_loot",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "treasure_object_id",
+        "type": "STRING"
+      },      {
+        "name": "treasure_tag",
+        "type": "STRING"
+      },      {
+        "name": "treasure_id",
+        "type": "INTEGER"
+      },      {
+        "name": "treasure_rarity",
+        "type": "INTEGER"
+      },      {
+        "name": "treasure_lot_result",
+        "type": "INTEGER"
+      },      {
+        "name": "reward_type",
+        "type": "INTEGER"
+      },      {
+        "name": "reward_id",
+        "type": "INTEGER"
+      },      {
+        "name": "reward_amount",
+        "type": "INTEGER"
+      },      {
+        "name": "player_loc_x",
+        "type": "FLOAT"
+      },      {
+        "name": "player_loc_y",
+        "type": "FLOAT"
+      },      {
+        "name": "player_loc_z",
+        "type": "FLOAT"
+      },      {
+        "name": "loot_at",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_enemy_dead",
+    "table_schema": [      {
+        "name": "enemy_id",
+        "type": "STRING"
+      },      {
+        "name": "enemy_lv",
+        "type": "INTEGER"
+      },      {
+        "name": "cause",
+        "type": "INTEGER"
+      },      {
+        "name": "content_id",
+        "type": "STRING"
+      },      {
+        "name": "location_x",
+        "type": "FLOAT"
+      },      {
+        "name": "location_y",
+        "type": "FLOAT"
+      },      {
+        "name": "location_z",
+        "type": "FLOAT"
+      },      {
+        "name": "nb_loot_player",
+        "type": "INTEGER"
+      },      {
+        "name": "battle_time",
+        "type": "INTEGER"
+      },      {
+        "name": "enemy_type",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_class_add_exp",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "class_type",
+        "type": "INTEGER"
+      },      {
+        "name": "request_exp",
+        "type": "INTEGER"
+      },      {
+        "name": "add_exp",
+        "type": "INTEGER"
+      },      {
+        "name": "before_exp",
+        "type": "INTEGER"
+      },      {
+        "name": "after_exp",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_dungeon_start",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_class",
+        "type": "STRING"
+      },      {
+        "name": "totalPower",
+        "type": "INTEGER"
+      },      {
+        "name": "equips",
+        "type": "STRING"
+      },      {
+        "name": "skill_data",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "dungeon_uid",
+        "type": "STRING"
+      },      {
+        "name": "spawn_point",
+        "type": "STRING"
+      },      {
+        "name": "passage_cost",
+        "type": "INTEGER"
+      },      {
+        "name": "level_sync",
+        "type": "INTEGER"
+      },      {
+        "name": "zone_id",
+        "type": "STRING"
+      },      {
+        "name": "session_id",
+        "type": "STRING"
+      },      {
+        "name": "map_name",
+        "type": "STRING"
+      },      {
+        "name": "content_id",
+        "type": "STRING"
+      },      {
+        "name": "dungeon_uuid",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_dungeon_result",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_class",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "dungeon_uid",
+        "type": "STRING"
+      },      {
+        "name": "passage_step",
+        "type": "INTEGER"
+      },      {
+        "name": "complete_num",
+        "type": "INTEGER"
+      },      {
+        "name": "dungeon_uuid",
+        "type": "STRING"
+      },      {
+        "name": "clear_time",
+        "type": "INTEGER"
+      },      {
+        "name": "score",
+        "type": "INTEGER"
+      },      {
+        "name": "use_plus_reward",
+        "type": "BOOLEAN"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_item_update",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_class",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "item_type",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id__name",
+        "type": "STRING"
+      },      {
+        "name": "unique_id",
+        "type": "STRING"
+      },      {
+        "name": "before_used_flag",
+        "type": "BOOLEAN"
+      },      {
+        "name": "after_used_flag",
+        "type": "BOOLEAN"
+      },      {
+        "name": "before_locked",
+        "type": "BOOLEAN"
+      },      {
+        "name": "after_locked",
+        "type": "BOOLEAN"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_buy_item",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_class",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "counter_id",
+        "type": "STRING"
+      },      {
+        "name": "item_list",
+        "type": "STRING"
+      },      {
+        "name": "use_amount",
+        "type": "INTEGER"
+      },      {
+        "name": "present_amount",
+        "type": "INTEGER"
+      },      {
+        "name": "token_id",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_sell_item",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_class",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "item_type",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id__name",
+        "type": "STRING"
+      },      {
+        "name": "amount",
+        "type": "INTEGER"
+      },      {
+        "name": "money",
+        "type": "INTEGER"
+      },      {
+        "name": "now_money",
+        "type": "INTEGER"
+      },      {
+        "name": "unique_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_use_item",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_class",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "item_type",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id__name",
+        "type": "STRING"
+      },      {
+        "name": "amount",
+        "type": "INTEGER"
+      },      {
+        "name": "now_amount",
+        "type": "INTEGER"
+      },      {
+        "name": "unique_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_add_engram",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "request_engram",
+        "type": "INTEGER"
+      },      {
+        "name": "add_engram",
+        "type": "INTEGER"
+      },      {
+        "name": "now_engram",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_levelup",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "class_type",
+        "type": "INTEGER"
+      },      {
+        "name": "lv_before",
+        "type": "INTEGER"
+      },      {
+        "name": "lv_after",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_id_start",
+    "table_schema": [      {
+        "name": "start_time",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "class_id",
+        "type": "INTEGER"
+      },      {
+        "name": "party_id",
+        "type": "STRING"
+      },      {
+        "name": "content_id",
+        "type": "STRING"
+      },      {
+        "name": "dungeon_uuid",
+        "type": "STRING"
+      },      {
+        "name": "weapon_id",
+        "type": "INTEGER"
+      },      {
+        "name": "weapon_id__name",
+        "type": "STRING"
+      },      {
+        "name": "cos_head_id",
+        "type": "INTEGER"
+      },      {
+        "name": "cos_head_id__name",
+        "type": "STRING"
+      },      {
+        "name": "cos_body_id",
+        "type": "INTEGER"
+      },      {
+        "name": "cos_body_id__name",
+        "type": "STRING"
+      },      {
+        "name": "cos_hand_id",
+        "type": "INTEGER"
+      },      {
+        "name": "cos_hand_id__name",
+        "type": "STRING"
+      },      {
+        "name": "cos_leg_id",
+        "type": "INTEGER"
+      },      {
+        "name": "cos_leg_id__name",
+        "type": "STRING"
+      },      {
+        "name": "cos_shoes_id",
+        "type": "INTEGER"
+      },      {
+        "name": "cos_shoes_id__name",
+        "type": "STRING"
+      },      {
+        "name": "cos_acc1_id",
+        "type": "INTEGER"
+      },      {
+        "name": "cos_acc1_id__name",
+        "type": "STRING"
+      },      {
+        "name": "cos_acc2_id",
+        "type": "INTEGER"
+      },      {
+        "name": "cos_acc2_id__name",
+        "type": "STRING"
+      },      {
+        "name": "cos_acc3_id",
+        "type": "INTEGER"
+      },      {
+        "name": "cos_acc3_id__name",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_id_result",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "party_id",
+        "type": "STRING"
+      },      {
+        "name": "content_id",
+        "type": "STRING"
+      },      {
+        "name": "dungeon_uuid",
+        "type": "STRING"
+      },      {
+        "name": "play_time",
+        "type": "INTEGER"
+      },      {
+        "name": "result_time",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "cause",
+        "type": "INTEGER"
+      },      {
+        "name": "total_damage_given",
+        "type": "INTEGER"
+      },      {
+        "name": "total_damage_taken",
+        "type": "INTEGER"
+      },      {
+        "name": "total_recovered_taken",
+        "type": "INTEGER"
+      },      {
+        "name": "dead_count",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_id_result_arena",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "content_id",
+        "type": "STRING"
+      },      {
+        "name": "dungeon_uuid",
+        "type": "STRING"
+      },      {
+        "name": "clear_wave",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_id_result_tower",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "content_id",
+        "type": "STRING"
+      },      {
+        "name": "dungeon_uuid",
+        "type": "STRING"
+      },      {
+        "name": "clear_floor",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_id_result_sa",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "content_id",
+        "type": "STRING"
+      },      {
+        "name": "dungeon_uuid",
+        "type": "STRING"
+      },      {
+        "name": "rank",
+        "type": "INTEGER"
+      },      {
+        "name": "score",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_id_result_ta",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "content_id",
+        "type": "STRING"
+      },      {
+        "name": "dungeon_uuid",
+        "type": "STRING"
+      },      {
+        "name": "rank",
+        "type": "INTEGER"
+      },      {
+        "name": "clear_time",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_id_result_raid",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "content_id",
+        "type": "STRING"
+      },      {
+        "name": "dungeon_uuid",
+        "type": "STRING"
+      },      {
+        "name": "class_id",
+        "type": "INTEGER"
+      },      {
+        "name": "total_rank",
+        "type": "INTEGER"
+      },      {
+        "name": "class_rank",
+        "type": "INTEGER"
+      },      {
+        "name": "reward_frame",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_id_character_leave",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "party_id",
+        "type": "STRING"
+      },      {
+        "name": "content_id",
+        "type": "STRING"
+      },      {
+        "name": "dungeon_uuid",
+        "type": "STRING"
+      },      {
+        "name": "cause",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_player_using_item",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_quest_start",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "class_type",
+        "type": "INTEGER"
+      },      {
+        "name": "level",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "quest_id",
+        "type": "INTEGER"
+      },      {
+        "name": "quest_name",
+        "type": "STRING"
+      },      {
+        "name": "quest_unique_id",
+        "type": "STRING"
+      },      {
+        "name": "auto_order_quest_unique_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_quest_update",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "class_type",
+        "type": "INTEGER"
+      },      {
+        "name": "level",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "quest_id",
+        "type": "INTEGER"
+      },      {
+        "name": "status",
+        "type": "INTEGER"
+      },      {
+        "name": "cur_step",
+        "type": "INTEGER"
+      },      {
+        "name": "progress",
+        "type": "STRING"
+      },      {
+        "name": "quest_name",
+        "type": "STRING"
+      },      {
+        "name": "quest_unique_id",
+        "type": "STRING"
+      },      {
+        "name": "auto_order_quest_unique_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_quest_cancel",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "class_type",
+        "type": "INTEGER"
+      },      {
+        "name": "level",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "quest_id",
+        "type": "INTEGER"
+      },      {
+        "name": "quest_name",
+        "type": "STRING"
+      },      {
+        "name": "quest_unique_id",
+        "type": "STRING"
+      },      {
+        "name": "auto_order_quest_unique_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_quest_complete",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "class_type",
+        "type": "INTEGER"
+      },      {
+        "name": "level",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "quest_id",
+        "type": "INTEGER"
+      },      {
+        "name": "clear_count",
+        "type": "INTEGER"
+      },      {
+        "name": "quest_name",
+        "type": "STRING"
+      },      {
+        "name": "quest_unique_id",
+        "type": "STRING"
+      },      {
+        "name": "auto_order_quest_unique_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_follow_add",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "follow_user_id",
+        "type": "STRING"
+      },      {
+        "name": "follow_character_id",
+        "type": "STRING"
+      },      {
+        "name": "follow_count",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_follow_remove",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "remove_follow_user_id",
+        "type": "STRING"
+      },      {
+        "name": "remove_follow_character_id",
+        "type": "STRING"
+      },      {
+        "name": "new_follow_count",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_profile_update",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "communicate",
+        "type": "STRING"
+      },      {
+        "name": "now_communicate",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_status",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "class_type",
+        "type": "INTEGER"
+      },      {
+        "name": "exp",
+        "type": "INTEGER"
+      },      {
+        "name": "money",
+        "type": "INTEGER"
+      },      {
+        "name": "glory_coin",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_item_equip",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_class",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "equip_flag",
+        "type": "BOOLEAN"
+      },      {
+        "name": "equip_type",
+        "type": "STRING"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id__name",
+        "type": "STRING"
+      },      {
+        "name": "item_unique_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_arts_equip",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "class_type",
+        "type": "STRING"
+      },      {
+        "name": "arts_type",
+        "type": "INTEGER"
+      },      {
+        "name": "arts_id",
+        "type": "STRING"
+      },      {
+        "name": "arts_id__name",
+        "type": "STRING"
+      },      {
+        "name": "slot_id",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_class_change",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "class_type",
+        "type": "INTEGER"
+      },      {
+        "name": "now_class_type",
+        "type": "INTEGER"
+      },      {
+        "name": "now_class_exp",
+        "type": "INTEGER"
+      },      {
+        "name": "now_class_level",
+        "type": "INTEGER"
+      },      {
+        "name": "now_weapon_item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "now_weapon_item_id__name",
+        "type": "STRING"
+      },      {
+        "name": "now_weapon_item_unique_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_battlearea_reset",
+    "table_schema": [      {
+        "name": "area_name",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_admin_teleport_to",
+    "table_schema": [      {
+        "name": "time",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "characterid",
+        "type": "STRING"
+      },      {
+        "name": "location_x",
+        "type": "FLOAT"
+      },      {
+        "name": "location_y",
+        "type": "FLOAT"
+      },      {
+        "name": "location_z",
+        "type": "FLOAT"
+      },      {
+        "name": "is_success",
+        "type": "BOOLEAN"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_cf_apply",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "party_id",
+        "type": "STRING"
+      },      {
+        "name": "party",
+        "type": "BOOLEAN"
+      },      {
+        "name": "backfill",
+        "type": "BOOLEAN"
+      },      {
+        "name": "immediate",
+        "type": "BOOLEAN"
+      },      {
+        "name": "dungeon_id",
+        "type": "STRING"
+      },      {
+        "name": "match_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_cf_cancel_apply",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "match_id",
+        "type": "STRING"
+      },      {
+        "name": "party_id",
+        "type": "STRING"
+      },      {
+        "name": "dungeon_id",
+        "type": "STRING"
+      },      {
+        "name": "reason",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_cf_confirm",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "match_id",
+        "type": "STRING"
+      },      {
+        "name": "party_id",
+        "type": "STRING"
+      },      {
+        "name": "dungeon_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_cf_add_penalty",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "match_id",
+        "type": "STRING"
+      },      {
+        "name": "party_id",
+        "type": "STRING"
+      },      {
+        "name": "dungeon_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_cf_complete",
+    "table_schema": [      {
+        "name": "dungeon_id",
+        "type": "STRING"
+      },      {
+        "name": "m_group_id_0",
+        "type": "STRING"
+      },      {
+        "name": "m_group_id_1",
+        "type": "STRING"
+      },      {
+        "name": "m_group_id_2",
+        "type": "STRING"
+      },      {
+        "name": "m_group_id_3",
+        "type": "STRING"
+      },      {
+        "name": "m_group_id_4",
+        "type": "STRING"
+      },      {
+        "name": "m_group_id_5",
+        "type": "STRING"
+      },      {
+        "name": "match_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_cf_game_session_request",
+    "table_schema": [      {
+        "name": "match_id",
+        "type": "STRING"
+      },      {
+        "name": "dungeon_id",
+        "type": "STRING"
+      },      {
+        "name": "num_players",
+        "type": "INTEGER"
+      },      {
+        "name": "want_players",
+        "type": "INTEGER"
+      },      {
+        "name": "max_players",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_cf_controller_cancel",
+    "table_schema": [      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "deleted_users",
+        "type": "STRING"
+      },      {
+        "name": "dungeon_id",
+        "type": "STRING"
+      },      {
+        "name": "group_id",
+        "type": "STRING"
+      },      {
+        "name": "reason",
+        "type": "STRING"
+      },      {
+        "name": "session",
+        "type": "STRING"
+      },      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_cf_controller_confirm",
+    "table_schema": [      {
+        "name": "session",
+        "type": "STRING"
+      },      {
+        "name": "ticket_id",
+        "type": "STRING"
+      },      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_cf_controller_group_matched",
+    "table_schema": [      {
+        "name": "match_id",
+        "type": "STRING"
+      },      {
+        "name": "max_members",
+        "type": "STRING"
+      },      {
+        "name": "session",
+        "type": "STRING"
+      },      {
+        "name": "size",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_cf_controller_proxy_event_connection",
+    "table_schema": [      {
+        "name": "event",
+        "type": "STRING"
+      },      {
+        "name": "proxy_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_cf_matchmaker_game_session",
+    "table_schema": [      {
+        "name": "match_id",
+        "type": "STRING"
+      },      {
+        "name": "max_members",
+        "type": "STRING"
+      },      {
+        "name": "message",
+        "type": "STRING"
+      },      {
+        "name": "session_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_cf_matchmaker_game_session_game_session_response",
+    "table_schema": [      {
+        "name": "match_id",
+        "type": "STRING"
+      },      {
+        "name": "max_members",
+        "type": "STRING"
+      },      {
+        "name": "message",
+        "type": "STRING"
+      },      {
+        "name": "session_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_cf_matchmaker_monitor",
+    "table_schema": [      {
+        "name": "matches_count",
+        "type": "STRING"
+      },      {
+        "name": "message",
+        "type": "STRING"
+      },      {
+        "name": "total_members_count",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_cf_service_apply",
+    "table_schema": [      {
+        "name": "immediate",
+        "type": "BOOLEAN"
+      },      {
+        "name": "joinable",
+        "type": "STRING"
+      },      {
+        "name": "match_id",
+        "type": "STRING"
+      },      {
+        "name": "match_type",
+        "type": "STRING"
+      },      {
+        "name": "max_member",
+        "type": "STRING"
+      },      {
+        "name": "min_member",
+        "type": "STRING"
+      },      {
+        "name": "party_size",
+        "type": "STRING"
+      },      {
+        "name": "session",
+        "type": "STRING"
+      },      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_cf_service_output_cancel_match",
+    "table_schema": [      {
+        "name": "match",
+        "type": "STRING"
+      },      {
+        "name": "session_id",
+        "type": "STRING"
+      },      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_cf_service_output_create_match",
+    "table_schema": [      {
+        "name": "match",
+        "type": "STRING"
+      },      {
+        "name": "session_id",
+        "type": "STRING"
+      },      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_cf_service_output_delete_empty_match",
+    "table_schema": [      {
+        "name": "match",
+        "type": "STRING"
+      },      {
+        "name": "session_id",
+        "type": "STRING"
+      },      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_cf_service_output_delete_match",
+    "table_schema": [      {
+        "name": "match",
+        "type": "STRING"
+      },      {
+        "name": "session_id",
+        "type": "STRING"
+      },      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_cf_service_output_do_confirm_match",
+    "table_schema": [      {
+        "name": "match",
+        "type": "STRING"
+      },      {
+        "name": "session_id",
+        "type": "STRING"
+      },      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_cf_service_output_join_match_reserved_slot",
+    "table_schema": [      {
+        "name": "match",
+        "type": "STRING"
+      },      {
+        "name": "session_id",
+        "type": "STRING"
+      },      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_cf_service_output_update_match_gameserver_after",
+    "table_schema": [      {
+        "name": "match",
+        "type": "STRING"
+      },      {
+        "name": "session_id",
+        "type": "STRING"
+      },      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_cf_service_output_update_match_gameserver_before",
+    "table_schema": [      {
+        "name": "match",
+        "type": "STRING"
+      },      {
+        "name": "session_id",
+        "type": "STRING"
+      },      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_defeat_enemy",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_class",
+        "type": "STRING"
+      },      {
+        "name": "equip_data",
+        "type": "STRING"
+      },      {
+        "name": "totalPower",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "enemy_id",
+        "type": "STRING"
+      },      {
+        "name": "money",
+        "type": "INTEGER"
+      },      {
+        "name": "engram",
+        "type": "INTEGER"
+      },      {
+        "name": "exp",
+        "type": "INTEGER"
+      },      {
+        "name": "items",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_save_gather_point",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "map_name",
+        "type": "STRING"
+      },      {
+        "name": "gather_point_id",
+        "type": "STRING"
+      },      {
+        "name": "gathered_at",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "respawn_at",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "money",
+        "type": "INTEGER"
+      },      {
+        "name": "items",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_set_option",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "type",
+        "type": "INTEGER"
+      },      {
+        "name": "option",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_request",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "x_user_id",
+        "type": "STRING"
+      },      {
+        "name": "x_character_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "method",
+        "type": "STRING"
+      },      {
+        "name": "url",
+        "type": "STRING"
+      },      {
+        "name": "status",
+        "type": "INTEGER"
+      },      {
+        "name": "ip",
+        "type": "STRING"
+      },      {
+        "name": "elapsed",
+        "type": "FLOAT"
+      },      {
+        "name": "requested_by",
+        "type": "STRING"
+      },      {
+        "name": "input",
+        "type": "STRING"
+      },      {
+        "name": "dump",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_error",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "x_user_id",
+        "type": "STRING"
+      },      {
+        "name": "x_character_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "errors",
+        "type": "STRING"
+      },      {
+        "name": "exception",
+        "type": "STRING"
+      },      {
+        "name": "message",
+        "type": "STRING"
+      },      {
+        "name": "file",
+        "type": "STRING"
+      },      {
+        "name": "line",
+        "type": "INTEGER"
+      },      {
+        "name": "trace",
+        "type": "STRING"
+      },      {
+        "name": "database_transaction_logs",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_party_recruit_registration",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "purpose",
+        "type": "INTEGER"
+      },      {
+        "name": "ambience",
+        "type": "INTEGER"
+      },      {
+        "name": "total_power",
+        "type": "INTEGER"
+      },      {
+        "name": "member_1_class",
+        "type": "INTEGER"
+      },      {
+        "name": "member_1_active",
+        "type": "BOOLEAN"
+      },      {
+        "name": "member_2_class",
+        "type": "INTEGER"
+      },      {
+        "name": "member_2_active",
+        "type": "BOOLEAN"
+      },      {
+        "name": "member_3_class",
+        "type": "INTEGER"
+      },      {
+        "name": "member_3_active",
+        "type": "BOOLEAN"
+      },      {
+        "name": "member_4_class",
+        "type": "INTEGER"
+      },      {
+        "name": "member_4_active",
+        "type": "BOOLEAN"
+      },      {
+        "name": "member_5_class",
+        "type": "INTEGER"
+      },      {
+        "name": "member_5_active",
+        "type": "BOOLEAN"
+      },      {
+        "name": "member_6_class",
+        "type": "INTEGER"
+      },      {
+        "name": "member_6_active",
+        "type": "BOOLEAN"
+      },      {
+        "name": "start_time",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_party_recruit_join",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "joined_character_id",
+        "type": "STRING"
+      },      {
+        "name": "joined_character_class",
+        "type": "INTEGER"
+      },      {
+        "name": "joined_character_total_power",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_party_recruit_close",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "is_established",
+        "type": "BOOLEAN"
+      },      {
+        "name": "purpose",
+        "type": "INTEGER"
+      },      {
+        "name": "ambience",
+        "type": "INTEGER"
+      },      {
+        "name": "total_power",
+        "type": "INTEGER"
+      },      {
+        "name": "member_1_class",
+        "type": "INTEGER"
+      },      {
+        "name": "member_1_active",
+        "type": "BOOLEAN"
+      },      {
+        "name": "member_2_class",
+        "type": "INTEGER"
+      },      {
+        "name": "member_2_active",
+        "type": "BOOLEAN"
+      },      {
+        "name": "member_3_class",
+        "type": "INTEGER"
+      },      {
+        "name": "member_3_active",
+        "type": "BOOLEAN"
+      },      {
+        "name": "member_4_class",
+        "type": "INTEGER"
+      },      {
+        "name": "member_4_active",
+        "type": "BOOLEAN"
+      },      {
+        "name": "member_5_class",
+        "type": "INTEGER"
+      },      {
+        "name": "member_5_active",
+        "type": "BOOLEAN"
+      },      {
+        "name": "member_6_class",
+        "type": "INTEGER"
+      },      {
+        "name": "member_6_active",
+        "type": "BOOLEAN"
+      },      {
+        "name": "start_time",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_reset_saved_gather_points",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "map_name",
+        "type": "STRING"
+      },      {
+        "name": "gather_point_ids",
+        "type": "STRING"
+      },      {
+        "name": "updated_at",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_blacklist_update",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "action",
+        "type": "STRING"
+      },      {
+        "name": "target_user_id",
+        "type": "STRING"
+      },      {
+        "name": "target_character_id",
+        "type": "STRING"
+      },      {
+        "name": "target_character_name",
+        "type": "STRING"
+      },      {
+        "name": "now_blacklist_count",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_chat_talk",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "from_user",
+        "type": "STRING"
+      },      {
+        "name": "from_server",
+        "type": "STRING"
+      },      {
+        "name": "from_resource",
+        "type": "STRING"
+      },      {
+        "name": "to_user",
+        "type": "STRING"
+      },      {
+        "name": "to_server",
+        "type": "STRING"
+      },      {
+        "name": "to_resource",
+        "type": "STRING"
+      },      {
+        "name": "message",
+        "type": "STRING"
+      },      {
+        "name": "message_type",
+        "type": "STRING"
+      },      {
+        "name": "chat_type",
+        "type": "STRING"
+      },      {
+        "name": "log_timestamp",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_chat_system",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "from_user",
+        "type": "STRING"
+      },      {
+        "name": "from_server",
+        "type": "STRING"
+      },      {
+        "name": "from_resource",
+        "type": "STRING"
+      },      {
+        "name": "to_user",
+        "type": "STRING"
+      },      {
+        "name": "to_server",
+        "type": "STRING"
+      },      {
+        "name": "to_resource",
+        "type": "STRING"
+      },      {
+        "name": "message",
+        "type": "STRING"
+      },      {
+        "name": "message_type",
+        "type": "STRING"
+      },      {
+        "name": "chat_type",
+        "type": "STRING"
+      },      {
+        "name": "log_timestamp",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_party_migration",
+    "table_schema": [      {
+        "name": "reader_user_id",
+        "type": "STRING"
+      },      {
+        "name": "reader_character_id",
+        "type": "STRING"
+      },      {
+        "name": "party_id",
+        "type": "STRING"
+      },      {
+        "name": "members",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_casual_pve_room_ranking_score",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "character_class",
+        "type": "STRING"
+      },      {
+        "name": "map_id",
+        "type": "STRING"
+      },      {
+        "name": "room_id",
+        "type": "STRING"
+      },      {
+        "name": "ranking_score",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_save_appearance_weapon_sticker",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "weapon_id",
+        "type": "INTEGER"
+      },      {
+        "name": "weapon_id__name",
+        "type": "STRING"
+      },      {
+        "name": "unique_id",
+        "type": "STRING"
+      },      {
+        "name": "weapon_appearance_weapon_id",
+        "type": "INTEGER"
+      },      {
+        "name": "weapon_appearance_weapon_id__name",
+        "type": "STRING"
+      },      {
+        "name": "weapon_appearance_weapon_sticker_id",
+        "type": "INTEGER"
+      },      {
+        "name": "weapon_appearance_weapon_sticker_id__name",
+        "type": "STRING"
+      },      {
+        "name": "sticker_type",
+        "type": "INTEGER"
+      },      {
+        "name": "sticker_release_time",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_remove_appearance_weapon_sticker",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "weapon_id",
+        "type": "INTEGER"
+      },      {
+        "name": "weapon_id__name",
+        "type": "STRING"
+      },      {
+        "name": "unique_id",
+        "type": "STRING"
+      },      {
+        "name": "weapon_appearance_weapon_id",
+        "type": "INTEGER"
+      },      {
+        "name": "weapon_appearance_weapon_id__name",
+        "type": "STRING"
+      },      {
+        "name": "weapon_appearance_weapon_sticker_id",
+        "type": "INTEGER"
+      },      {
+        "name": "weapon_appearance_weapon_sticker_id__name",
+        "type": "STRING"
+      },      {
+        "name": "sticker_type",
+        "type": "INTEGER"
+      },      {
+        "name": "sticker_release_time",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "sticker_remover_item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "sticker_remover_item_id__name",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_currency_history",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "platform",
+        "type": "INTEGER"
+      },      {
+        "name": "update_type",
+        "type": "STRING"
+      },      {
+        "name": "change_amount_paid",
+        "type": "INTEGER"
+      },      {
+        "name": "change_amount_free",
+        "type": "INTEGER"
+      },      {
+        "name": "after_amount_paid",
+        "type": "INTEGER"
+      },      {
+        "name": "after_amount_free",
+        "type": "INTEGER"
+      },      {
+        "name": "action_type",
+        "type": "STRING"
+      },      {
+        "name": "letter_id",
+        "type": "STRING"
+      },      {
+        "name": "price",
+        "type": "INTEGER"
+      },      {
+        "name": "expired_at",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "reason",
+        "type": "STRING"
+      },      {
+        "name": "first_purchase",
+        "type": "BOOLEAN"
+      },      {
+        "name": "amount_paid",
+        "type": "STRING"
+      },      {
+        "name": "amount_paid_currency",
+        "type": "STRING"
+      },      {
+        "name": "add_count",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "is_used_coupon",
+        "type": "BOOLEAN"
+      },      {
+        "name": "discount_amount",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_currency_purchase",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "agency_id",
+        "type": "INTEGER"
+      },      {
+        "name": "payment_type",
+        "type": "STRING"
+      },      {
+        "name": "order_id",
+        "type": "STRING"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "item_name",
+        "type": "STRING"
+      },      {
+        "name": "count",
+        "type": "INTEGER"
+      },      {
+        "name": "price",
+        "type": "INTEGER"
+      },      {
+        "name": "step",
+        "type": "INTEGER"
+      },      {
+        "name": "url",
+        "type": "STRING"
+      },      {
+        "name": "request_date",
+        "type": "STRING"
+      },      {
+        "name": "request_params",
+        "type": "STRING"
+      },      {
+        "name": "result_code",
+        "type": "INTEGER"
+      },      {
+        "name": "agency_result_code",
+        "type": "STRING"
+      },      {
+        "name": "agency_result_message",
+        "type": "STRING"
+      },      {
+        "name": "response_date",
+        "type": "STRING"
+      },      {
+        "name": "status_code",
+        "type": "INTEGER"
+      },      {
+        "name": "result",
+        "type": "STRING"
+      },      {
+        "name": "unit_price",
+        "type": "FLOAT"
+      },      {
+        "name": "currency",
+        "type": "STRING"
+      },      {
+        "name": "first_purchase_for_payment",
+        "type": "BOOLEAN"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_add_money",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "request_money",
+        "type": "INTEGER"
+      },      {
+        "name": "add_money",
+        "type": "INTEGER"
+      },      {
+        "name": "before_money",
+        "type": "INTEGER"
+      },      {
+        "name": "now_money",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_money_history",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "update_type",
+        "type": "STRING"
+      },      {
+        "name": "change_amount",
+        "type": "INTEGER"
+      },      {
+        "name": "after_amount",
+        "type": "INTEGER"
+      },      {
+        "name": "action",
+        "type": "INTEGER"
+      },      {
+        "name": "action_type",
+        "type": "STRING"
+      },      {
+        "name": "letter_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_birthday_update",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "birthday",
+        "type": "STRING"
+      },      {
+        "name": "modify_count",
+        "type": "INTEGER"
+      },      {
+        "name": "modify_date",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_batch_currency_delete_expired",
+    "table_schema": [      {
+        "name": "message_level",
+        "type": "STRING"
+      },      {
+        "name": "message",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_batch_coin_delete_expired",
+    "table_schema": [      {
+        "name": "message_level",
+        "type": "STRING"
+      },      {
+        "name": "message",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_adventurer_card_update",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "mood_icon_id",
+        "type": "INTEGER"
+      },      {
+        "name": "send_card_form_party",
+        "type": "BOOLEAN"
+      },      {
+        "name": "send_card_receive_card",
+        "type": "BOOLEAN"
+      },      {
+        "name": "no_override",
+        "type": "BOOLEAN"
+      },      {
+        "name": "short_comment",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_adventurer_card_send",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "to_user_id",
+        "type": "STRING"
+      },      {
+        "name": "to_character_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_contact_list_get",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_contact_list_remove",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "from_user_id",
+        "type": "STRING"
+      },      {
+        "name": "from_character_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_contact_list_update",
+    "table_schema": [      {
+        "name": "from_user_id",
+        "type": "STRING"
+      },      {
+        "name": "from_character_id",
+        "type": "STRING"
+      },      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_friend_list_remove",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "from_user_id",
+        "type": "STRING"
+      },      {
+        "name": "from_character_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_like_send",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "to_user_id",
+        "type": "STRING"
+      },      {
+        "name": "to_character_id",
+        "type": "STRING"
+      },      {
+        "name": "to_character_name",
+        "type": "STRING"
+      },      {
+        "name": "now_date",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "alert",
+        "type": "BOOLEAN"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_like_receive",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "from_user_id",
+        "type": "STRING"
+      },      {
+        "name": "from_character_id",
+        "type": "STRING"
+      },      {
+        "name": "from_character_name",
+        "type": "STRING"
+      },      {
+        "name": "now_date",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "alert",
+        "type": "BOOLEAN"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_guild_create",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "guild_id",
+        "type": "STRING"
+      },      {
+        "name": "guild_name",
+        "type": "STRING"
+      },      {
+        "name": "guild_tag",
+        "type": "STRING"
+      },      {
+        "name": "comment",
+        "type": "STRING"
+      },      {
+        "name": "times",
+        "type": "STRING"
+      },      {
+        "name": "styles",
+        "type": "STRING"
+      },      {
+        "name": "accepttype",
+        "type": "BOOLEAN"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_guild_change_data",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "guild_id",
+        "type": "STRING"
+      },      {
+        "name": "guild_name",
+        "type": "STRING"
+      },      {
+        "name": "old_data",
+        "type": "STRING"
+      },      {
+        "name": "new_data",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_guild_change_name",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "guild_id",
+        "type": "STRING"
+      },      {
+        "name": "old_guild_name",
+        "type": "STRING"
+      },      {
+        "name": "old_guild_tag",
+        "type": "STRING"
+      },      {
+        "name": "new_guild_name",
+        "type": "STRING"
+      },      {
+        "name": "new_guild_tag",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_guild_change_comment",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "guild_id",
+        "type": "STRING"
+      },      {
+        "name": "guild_name",
+        "type": "STRING"
+      },      {
+        "name": "comment",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_guild_change_style",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "guild_id",
+        "type": "STRING"
+      },      {
+        "name": "guild_name",
+        "type": "STRING"
+      },      {
+        "name": "times",
+        "type": "STRING"
+      },      {
+        "name": "styles",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_guild_change_accepttype",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "guild_id",
+        "type": "STRING"
+      },      {
+        "name": "guild_name",
+        "type": "STRING"
+      },      {
+        "name": "accepttype",
+        "type": "BOOLEAN"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_guild_entry",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "guild_id",
+        "type": "STRING"
+      },      {
+        "name": "guild_name",
+        "type": "STRING"
+      },      {
+        "name": "comment",
+        "type": "STRING"
+      },      {
+        "name": "entry_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_guild_accept_member",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "to_user_id",
+        "type": "STRING"
+      },      {
+        "name": "to_character_id",
+        "type": "STRING"
+      },      {
+        "name": "to_character_name",
+        "type": "STRING"
+      },      {
+        "name": "guild_id",
+        "type": "STRING"
+      },      {
+        "name": "guild_name",
+        "type": "STRING"
+      },      {
+        "name": "entry_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_guild_deny_member",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "to_user_id",
+        "type": "STRING"
+      },      {
+        "name": "to_character_id",
+        "type": "STRING"
+      },      {
+        "name": "to_character_name",
+        "type": "STRING"
+      },      {
+        "name": "guild_id",
+        "type": "STRING"
+      },      {
+        "name": "guild_name",
+        "type": "STRING"
+      },      {
+        "name": "entry_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_guild_cancel_entry",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "guild_id",
+        "type": "STRING"
+      },      {
+        "name": "guild_name",
+        "type": "STRING"
+      },      {
+        "name": "entry_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_guild_invitation",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "to_user_id",
+        "type": "STRING"
+      },      {
+        "name": "to_character_id",
+        "type": "STRING"
+      },      {
+        "name": "to_character_name",
+        "type": "STRING"
+      },      {
+        "name": "guild_id",
+        "type": "STRING"
+      },      {
+        "name": "guild_name",
+        "type": "STRING"
+      },      {
+        "name": "entry_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_guild_accept_invitation",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "guild_id",
+        "type": "STRING"
+      },      {
+        "name": "guild_name",
+        "type": "STRING"
+      },      {
+        "name": "entry_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_guild_deny_invitation",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "guild_id",
+        "type": "STRING"
+      },      {
+        "name": "guild_name",
+        "type": "STRING"
+      },      {
+        "name": "entry_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_guild_cancel_invitation",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "to_user_id",
+        "type": "STRING"
+      },      {
+        "name": "to_character_id",
+        "type": "STRING"
+      },      {
+        "name": "to_character_name",
+        "type": "STRING"
+      },      {
+        "name": "guild_id",
+        "type": "STRING"
+      },      {
+        "name": "guild_name",
+        "type": "STRING"
+      },      {
+        "name": "entry_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_guild_withdraw",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "guild_id",
+        "type": "STRING"
+      },      {
+        "name": "guild_name",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_guild_kick_member",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "to_user_id",
+        "type": "STRING"
+      },      {
+        "name": "to_character_id",
+        "type": "STRING"
+      },      {
+        "name": "to_character_name",
+        "type": "STRING"
+      },      {
+        "name": "guild_id",
+        "type": "STRING"
+      },      {
+        "name": "guild_name",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_guild_dissolution",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "guild_id",
+        "type": "STRING"
+      },      {
+        "name": "guild_name",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_guild_member_change_role",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "to_user_id",
+        "type": "STRING"
+      },      {
+        "name": "to_character_id",
+        "type": "STRING"
+      },      {
+        "name": "to_character_name",
+        "type": "STRING"
+      },      {
+        "name": "guild_id",
+        "type": "STRING"
+      },      {
+        "name": "guild_name",
+        "type": "STRING"
+      },      {
+        "name": "role_id",
+        "type": "STRING"
+      },      {
+        "name": "role_name",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_guild_exchange_authority",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "to_user_id",
+        "type": "STRING"
+      },      {
+        "name": "to_character_id",
+        "type": "STRING"
+      },      {
+        "name": "to_character_name",
+        "type": "STRING"
+      },      {
+        "name": "guild_id",
+        "type": "STRING"
+      },      {
+        "name": "guild_name",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_achievement_clear",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_name",
+        "type": "STRING"
+      },      {
+        "name": "achievement_id",
+        "type": "STRING"
+      },      {
+        "name": "achievement_id__name",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_second_password_registration",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_second_password_expired",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "expire_count",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_second_password_reset",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "action_type",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_dgs_fleet_request",
+    "table_schema": [      {
+        "name": "fleet_id",
+        "type": "STRING"
+      },      {
+        "name": "requested_capacity",
+        "type": "INTEGER"
+      },      {
+        "name": "reserved_capacity",
+        "type": "INTEGER"
+      },      {
+        "name": "error",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_dgs_fleet_instance",
+    "table_schema": [      {
+        "name": "fleet_id",
+        "type": "STRING"
+      },      {
+        "name": "subnet",
+        "type": "STRING"
+      },      {
+        "name": "aws_template",
+        "type": "STRING"
+      },      {
+        "name": "instance_type",
+        "type": "STRING"
+      },      {
+        "name": "lifecycle",
+        "type": "STRING"
+      },      {
+        "name": "instance_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_dgs_agent_start",
+    "table_schema": [      {
+        "name": "instance_id",
+        "type": "STRING"
+      },      {
+        "name": "dgs_types",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_dgs_agent_stop",
+    "table_schema": [      {
+        "name": "instance_id",
+        "type": "STRING"
+      },      {
+        "name": "uptime",
+        "type": "INTEGER"
+      },      {
+        "name": "error",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_dgs_process_start",
+    "table_schema": [      {
+        "name": "instance_id",
+        "type": "STRING"
+      },      {
+        "name": "container_id",
+        "type": "STRING"
+      },      {
+        "name": "game_content_id",
+        "type": "STRING"
+      },      {
+        "name": "dgs_type",
+        "type": "STRING"
+      },      {
+        "name": "port",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_dgs_process_healthcheck_fail",
+    "table_schema": [      {
+        "name": "instance_id",
+        "type": "STRING"
+      },      {
+        "name": "container_id",
+        "type": "STRING"
+      },      {
+        "name": "game_content_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_dgs_process_stop",
+    "table_schema": [      {
+        "name": "instance_id",
+        "type": "STRING"
+      },      {
+        "name": "container_id",
+        "type": "STRING"
+      },      {
+        "name": "game_content_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_dgs_resource_usage",
+    "table_schema": [      {
+        "name": "instance_id",
+        "type": "STRING"
+      },      {
+        "name": "container_id",
+        "type": "STRING"
+      },      {
+        "name": "game_content_id",
+        "type": "STRING"
+      },      {
+        "name": "client_count",
+        "type": "INTEGER"
+      },      {
+        "name": "cpu_perc",
+        "type": "FLOAT"
+      },      {
+        "name": "mem_usage",
+        "type": "FLOAT"
+      },      {
+        "name": "mem_usage_unit",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_buy_season_pass",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_level",
+        "type": "INTEGER"
+      },      {
+        "name": "season_id",
+        "type": "STRING"
+      },      {
+        "name": "season_id__name",
+        "type": "STRING"
+      },      {
+        "name": "type",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_season_pass_complete_quest",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_level",
+        "type": "INTEGER"
+      },      {
+        "name": "season_id",
+        "type": "STRING"
+      },      {
+        "name": "season_id__name",
+        "type": "STRING"
+      },      {
+        "name": "season_pass_quest_id",
+        "type": "STRING"
+      },      {
+        "name": "season_pass_quest_id__name",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_season_pass_change_points",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_level",
+        "type": "INTEGER"
+      },      {
+        "name": "season_id",
+        "type": "STRING"
+      },      {
+        "name": "season_id__name",
+        "type": "STRING"
+      },      {
+        "name": "change_points",
+        "type": "INTEGER"
+      },      {
+        "name": "result_points",
+        "type": "INTEGER"
+      },      {
+        "name": "change_date",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_auto_order_quest_reload",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_level",
+        "type": "INTEGER"
+      },      {
+        "name": "quest_auto_order_type",
+        "type": "INTEGER"
+      },      {
+        "name": "season_id",
+        "type": "STRING"
+      },      {
+        "name": "season_id__name",
+        "type": "STRING"
+      },      {
+        "name": "quest_reload_id",
+        "type": "STRING"
+      },      {
+        "name": "ticket_id",
+        "type": "INTEGER"
+      },      {
+        "name": "ticket_count",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "quest_unique_id",
+        "type": "STRING"
+      },      {
+        "name": "auto_order_quest_unique_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_get_season_pass_reward",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_level",
+        "type": "INTEGER"
+      },      {
+        "name": "season_id",
+        "type": "STRING"
+      },      {
+        "name": "season_id__name",
+        "type": "STRING"
+      },      {
+        "name": "season_reward_id",
+        "type": "STRING"
+      },      {
+        "name": "mail_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_theater_mode_playback_update",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "demo_id",
+        "type": "STRING"
+      },      {
+        "name": "update_time",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "number_of_plays",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_season_pass_rank_up",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_level",
+        "type": "INTEGER"
+      },      {
+        "name": "season_id",
+        "type": "STRING"
+      },      {
+        "name": "season_id__name",
+        "type": "STRING"
+      },      {
+        "name": "buy_date",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "buy_rank",
+        "type": "INTEGER"
+      },      {
+        "name": "result_rank",
+        "type": "INTEGER"
+      },      {
+        "name": "change_points",
+        "type": "INTEGER"
+      },      {
+        "name": "changed_points",
+        "type": "INTEGER"
+      },      {
+        "name": "change_free",
+        "type": "INTEGER"
+      },      {
+        "name": "change_paid",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_weapon_recycle",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_class",
+        "type": "STRING"
+      },      {
+        "name": "unique_id",
+        "type": "STRING"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id__name",
+        "type": "STRING"
+      },      {
+        "name": "perk_id1",
+        "type": "INTEGER"
+      },      {
+        "name": "effect_values1",
+        "type": "STRING"
+      },      {
+        "name": "perk_id2",
+        "type": "INTEGER"
+      },      {
+        "name": "effect_values2",
+        "type": "STRING"
+      },      {
+        "name": "perk_id3",
+        "type": "INTEGER"
+      },      {
+        "name": "effect_values3",
+        "type": "STRING"
+      },      {
+        "name": "perk_id4",
+        "type": "INTEGER"
+      },      {
+        "name": "effect_values4",
+        "type": "STRING"
+      },      {
+        "name": "present_unlocked_slot",
+        "type": "INTEGER"
+      },      {
+        "name": "used_ticket_unique_id",
+        "type": "STRING"
+      },      {
+        "name": "used_ticket_id",
+        "type": "INTEGER"
+      },      {
+        "name": "used_ticket_count",
+        "type": "INTEGER"
+      },      {
+        "name": "recycle_slot_no",
+        "type": "INTEGER"
+      },      {
+        "name": "recycle_perk_id",
+        "type": "INTEGER"
+      },      {
+        "name": "recycle_effect_values",
+        "type": "STRING"
+      },      {
+        "name": "recycled_item_unique_id",
+        "type": "STRING"
+      },      {
+        "name": "recycled_item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_weapon_tuning",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_class",
+        "type": "STRING"
+      },      {
+        "name": "unique_id",
+        "type": "STRING"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id__name",
+        "type": "STRING"
+      },      {
+        "name": "perk_id1",
+        "type": "INTEGER"
+      },      {
+        "name": "effect_values1",
+        "type": "STRING"
+      },      {
+        "name": "perk_id2",
+        "type": "INTEGER"
+      },      {
+        "name": "effect_values2",
+        "type": "STRING"
+      },      {
+        "name": "perk_id3",
+        "type": "INTEGER"
+      },      {
+        "name": "effect_values3",
+        "type": "STRING"
+      },      {
+        "name": "perk_id4",
+        "type": "INTEGER"
+      },      {
+        "name": "effect_values4",
+        "type": "STRING"
+      },      {
+        "name": "present_unlocked_slot",
+        "type": "INTEGER"
+      },      {
+        "name": "tuning_ticket_unique_id",
+        "type": "STRING"
+      },      {
+        "name": "tuning_ticket_id",
+        "type": "INTEGER"
+      },      {
+        "name": "tuning_ticket_count",
+        "type": "INTEGER"
+      },      {
+        "name": "protect_ticket_id1",
+        "type": "INTEGER"
+      },      {
+        "name": "protect_ticket_count1",
+        "type": "INTEGER"
+      },      {
+        "name": "protect_slot_no1",
+        "type": "INTEGER"
+      },      {
+        "name": "protect_perk_id1",
+        "type": "INTEGER"
+      },      {
+        "name": "protect_effect_values1",
+        "type": "STRING"
+      },      {
+        "name": "protect_ticket_id2",
+        "type": "INTEGER"
+      },      {
+        "name": "protect_ticket_count2",
+        "type": "INTEGER"
+      },      {
+        "name": "protect_slot_no2",
+        "type": "INTEGER"
+      },      {
+        "name": "protect_perk_id2",
+        "type": "INTEGER"
+      },      {
+        "name": "protect_effect_values2",
+        "type": "STRING"
+      },      {
+        "name": "protect_ticket_id3",
+        "type": "INTEGER"
+      },      {
+        "name": "protect_ticket_count3",
+        "type": "INTEGER"
+      },      {
+        "name": "protect_slot_no3",
+        "type": "INTEGER"
+      },      {
+        "name": "protect_perk_id3",
+        "type": "INTEGER"
+      },      {
+        "name": "protect_effect_values3",
+        "type": "STRING"
+      },      {
+        "name": "after_perk_id1",
+        "type": "INTEGER"
+      },      {
+        "name": "after_effect_values1",
+        "type": "STRING"
+      },      {
+        "name": "after_perk_id2",
+        "type": "INTEGER"
+      },      {
+        "name": "after_effect_values2",
+        "type": "STRING"
+      },      {
+        "name": "after_perk_id3",
+        "type": "INTEGER"
+      },      {
+        "name": "after_effect_values3",
+        "type": "STRING"
+      },      {
+        "name": "after_perk_id4",
+        "type": "INTEGER"
+      },      {
+        "name": "after_effect_values4",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_gasha_reward_receipt",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "gender",
+        "type": "INTEGER"
+      },      {
+        "name": "adventurer_rank",
+        "type": "INTEGER"
+      },      {
+        "name": "platform",
+        "type": "INTEGER"
+      },      {
+        "name": "gasha_id",
+        "type": "STRING"
+      },      {
+        "name": "gasha_id__name",
+        "type": "STRING"
+      },      {
+        "name": "gasha_name",
+        "type": "STRING"
+      },      {
+        "name": "reward_items",
+        "type": "STRING"
+      },      {
+        "name": "bonus_items",
+        "type": "STRING"
+      },      {
+        "name": "change_amount_paid",
+        "type": "INTEGER"
+      },      {
+        "name": "change_amount_free",
+        "type": "INTEGER"
+      },      {
+        "name": "change_amount_coin",
+        "type": "INTEGER"
+      },      {
+        "name": "change_token_id",
+        "type": "INTEGER"
+      },      {
+        "name": "change_token_id__name",
+        "type": "STRING"
+      },      {
+        "name": "change_amount_token",
+        "type": "INTEGER"
+      },      {
+        "name": "gasha_count",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_stamp_acquisition",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_level",
+        "type": "INTEGER"
+      },      {
+        "name": "stamp_ids",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_craft_recipe_released",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_level",
+        "type": "INTEGER"
+      },      {
+        "name": "released_craft_recepi_list",
+        "type": "STRING"
+      },      {
+        "name": "recepi_released_date",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_buff_npc_save",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "game_content_id",
+        "type": "STRING"
+      },      {
+        "name": "buff_tag",
+        "type": "STRING"
+      },      {
+        "name": "is_return_city",
+        "type": "BOOLEAN"
+      },      {
+        "name": "is_interacted",
+        "type": "BOOLEAN"
+      },      {
+        "name": "respawn_at",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_change_equipment_color",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "changed_item",
+        "type": "STRING"
+      },      {
+        "name": "used_items",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_aesthe_save_info",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "info_id",
+        "type": "INTEGER"
+      },      {
+        "name": "character_create",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_aesthe_update_character",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "course_id",
+        "type": "INTEGER"
+      },      {
+        "name": "course_id__name",
+        "type": "STRING"
+      },      {
+        "name": "token_id",
+        "type": "INTEGER"
+      },      {
+        "name": "token_id__name",
+        "type": "STRING"
+      },      {
+        "name": "token_amount",
+        "type": "INTEGER"
+      },      {
+        "name": "character_create",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_assets_history",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "platform",
+        "type": "INTEGER"
+      },      {
+        "name": "update_type",
+        "type": "STRING"
+      },      {
+        "name": "change_amount",
+        "type": "INTEGER"
+      },      {
+        "name": "after_amount",
+        "type": "INTEGER"
+      },      {
+        "name": "action",
+        "type": "INTEGER"
+      },      {
+        "name": "action_type",
+        "type": "STRING"
+      },      {
+        "name": "asset_type",
+        "type": "STRING"
+      },      {
+        "name": "letter_id",
+        "type": "STRING"
+      },      {
+        "name": "token_id",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_snapshot",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "adventurer_rank",
+        "type": "INTEGER"
+      },      {
+        "name": "character_class",
+        "type": "STRING"
+      },      {
+        "name": "money",
+        "type": "INTEGER"
+      },      {
+        "name": "gc",
+        "type": "INTEGER"
+      },      {
+        "name": "brave_point",
+        "type": "INTEGER"
+      },      {
+        "name": "coupon_id",
+        "type": "INTEGER"
+      },      {
+        "name": "season_id",
+        "type": "INTEGER"
+      },      {
+        "name": "season_point",
+        "type": "INTEGER"
+      },      {
+        "name": "paid_stone",
+        "type": "INTEGER"
+      },      {
+        "name": "free_stone",
+        "type": "INTEGER"
+      },      {
+        "name": "paid_stone_description",
+        "type": "STRING"
+      },      {
+        "name": "paid_stone_price",
+        "type": "FLOAT"
+      },      {
+        "name": "paid_stone_currency",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_photo_upload_image",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "image_path",
+        "type": "STRING"
+      },      {
+        "name": "old_image_path",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_photo_update_trimming",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "photo_mode_image_id",
+        "type": "STRING"
+      },      {
+        "name": "trimming_type",
+        "type": "INTEGER"
+      },      {
+        "name": "scale",
+        "type": "FLOAT"
+      },      {
+        "name": "trimming_coordinate_x",
+        "type": "FLOAT"
+      },      {
+        "name": "trimming_coordinate_y",
+        "type": "FLOAT"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_photo_reset_trimming",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "photo_mode_image_id",
+        "type": "STRING"
+      },      {
+        "name": "trimming_type",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_buy_character_slot",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "additional_character_slot",
+        "type": "INTEGER"
+      },      {
+        "name": "character_slot",
+        "type": "INTEGER"
+      },      {
+        "name": "purchase_amount",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_agree_to_terms_of_use",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "platform",
+        "type": "INTEGER"
+      },      {
+        "name": "term_id",
+        "type": "INTEGER"
+      },      {
+        "name": "agreed_at",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "version",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_create_user_id",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_defense_battle",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_class",
+        "type": "STRING"
+      },      {
+        "name": "character_class_level",
+        "type": "INTEGER"
+      },      {
+        "name": "unaltered_contribution_scores",
+        "type": "STRING"
+      },      {
+        "name": "character_battle_score",
+        "type": "FLOAT"
+      },      {
+        "name": "equipped_weapons",
+        "type": "STRING"
+      },      {
+        "name": "equipped_battle_imagines",
+        "type": "STRING"
+      },      {
+        "name": "equipped_inner_imagines",
+        "type": "STRING"
+      },      {
+        "name": "equipped_tactical_skills",
+        "type": "STRING"
+      },      {
+        "name": "equipped_tactical_abilities",
+        "type": "STRING"
+      },      {
+        "name": "equipped_class_skills",
+        "type": "STRING"
+      },      {
+        "name": "character_damage",
+        "type": "FLOAT"
+      },      {
+        "name": "number_of_deaths",
+        "type": "INTEGER"
+      },      {
+        "name": "number_of_enemies_defeated",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_mount_expedition_start",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_mount_expedition_id",
+        "type": "STRING"
+      },      {
+        "name": "mount_expedition_id",
+        "type": "STRING"
+      },      {
+        "name": "mount_expedition_name",
+        "type": "STRING"
+      },      {
+        "name": "mount_expedition_time_id",
+        "type": "STRING"
+      },      {
+        "name": "start_time",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "base_end_time",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "end_time",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "mount_uids",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_mount_expedition_use_token",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_mount_expedition_id",
+        "type": "STRING"
+      },      {
+        "name": "token_id",
+        "type": "STRING"
+      },      {
+        "name": "situation",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_mount_expedition_end",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "character_mount_expedition_id",
+        "type": "STRING"
+      },      {
+        "name": "mount_expedition_id",
+        "type": "STRING"
+      },      {
+        "name": "mount_expedition_name",
+        "type": "STRING"
+      },      {
+        "name": "mount_expedition_time_id",
+        "type": "STRING"
+      },      {
+        "name": "certainty_reward_table_ids",
+        "type": "STRING"
+      },      {
+        "name": "random_reward_table_ids",
+        "type": "STRING"
+      },      {
+        "name": "time",
+        "type": "INTEGER"
+      },      {
+        "name": "end_time",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "mount_uids",
+        "type": "STRING"
+      },      {
+        "name": "end_type",
+        "type": "INTEGER"
+      },      {
+        "name": "reward_ids",
+        "type": "STRING"
+      },      {
+        "name": "get_exp",
+        "type": "INTEGER"
+      },      {
+        "name": "after_exp",
+        "type": "INTEGER"
+      },      {
+        "name": "after_count",
+        "type": "INTEGER"
+      },      {
+        "name": "total_time",
+        "type": "INTEGER"
+      },      {
+        "name": "stack_rare_time",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_mount_expedition_open_rare",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "reason",
+        "type": "INTEGER"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_mount_expedition_lottery",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "mount_expedition_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_login_bonus_update",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "login_bonus_id",
+        "type": "STRING"
+      },      {
+        "name": "day",
+        "type": "INTEGER"
+      },      {
+        "name": "update_time",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_enemy_debug",
+    "table_schema": [      {
+        "name": "enemy_id",
+        "type": "STRING"
+      },      {
+        "name": "content_id",
+        "type": "STRING"
+      },      {
+        "name": "location_x",
+        "type": "FLOAT"
+      },      {
+        "name": "location_y",
+        "type": "FLOAT"
+      },      {
+        "name": "location_z",
+        "type": "FLOAT"
+      },      {
+        "name": "debug_string",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_generic_get",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "reward_type",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "amount",
+        "type": "INTEGER"
+      },      {
+        "name": "action_type",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_generic_remove",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "reward_type",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "amount",
+        "type": "INTEGER"
+      },      {
+        "name": "action_type",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_adboard_start",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "adboard_id",
+        "type": "INTEGER"
+      },      {
+        "name": "panel_id",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_adboard_complete",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "adboard_id",
+        "type": "INTEGER"
+      },      {
+        "name": "panel_id",
+        "type": "INTEGER"
+      },      {
+        "name": "complete",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_adboard_reward",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "adboard_id",
+        "type": "INTEGER"
+      },      {
+        "name": "panel_id",
+        "type": "INTEGER"
+      },      {
+        "name": "reward_type",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "amount",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_adboard_active",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "adboard_id",
+        "type": "INTEGER"
+      },      {
+        "name": "active",
+        "type": "BOOLEAN"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_connectcoupon_issue",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "coupon_id",
+        "type": "INTEGER"
+      },      {
+        "name": "code",
+        "type": "STRING"
+      },      {
+        "name": "expired_at",
+        "type": "TIMESTAMP"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_connectcoupon_use",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "code",
+        "type": "STRING"
+      },      {
+        "name": "issue_user_id",
+        "type": "STRING"
+      },      {
+        "name": "count_use",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_item_used_update",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "item_type",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "used",
+        "type": "BOOLEAN"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_item_lock_update",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "item_type",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "lock",
+        "type": "BOOLEAN"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_item_storage_update",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "item_type",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "amount",
+        "type": "INTEGER"
+      },      {
+        "name": "old_storage_type",
+        "type": "INTEGER"
+      },      {
+        "name": "new_storage_type",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_auto_order_quest_complete",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "quest_auto_order_type",
+        "type": "INTEGER"
+      },      {
+        "name": "quest_id",
+        "type": "INTEGER"
+      },      {
+        "name": "use_ticket",
+        "type": "BOOLEAN"
+      },      {
+        "name": "ticket_consumed_amount",
+        "type": "INTEGER"
+      },      {
+        "name": "ticket_new_amount",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "quest_unique_id",
+        "type": "STRING"
+      },      {
+        "name": "auto_order_quest_unique_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_auto_order_quest_reward",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "quest_auto_order_type",
+        "type": "INTEGER"
+      },      {
+        "name": "quest_id",
+        "type": "INTEGER"
+      },      {
+        "name": "reward_type",
+        "type": "INTEGER"
+      },      {
+        "name": "item_id",
+        "type": "INTEGER"
+      },      {
+        "name": "amount",
+        "type": "INTEGER"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "quest_unique_id",
+        "type": "STRING"
+      },      {
+        "name": "auto_order_quest_unique_id",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_change_name",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "old_character_name",
+        "type": "STRING"
+      },      {
+        "name": "new_character_name",
+        "type": "STRING"
+      },      {
+        "name": "use_ticket",
+        "type": "BOOLEAN"
+      },      {
+        "name": "banned",
+        "type": "BOOLEAN"
+      },      {
+        "name": "ban_id",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  },
+ {
+    "table_name": "SB_LOG_mail_send",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "mail_id",
+        "type": "STRING"
+      },      {
+        "name": "transferred",
+        "type": "BOOLEAN"
+      },      {
+        "name": "to_user_id",
+        "type": "STRING"
+      },      {
+        "name": "to_character_id",
+        "type": "STRING"
+      },      {
+        "name": "attachment_id_type",
+        "type": "STRING"
+      },      {
+        "name": "attachment_id",
+        "type": "STRING"
+      },      {
+        "name": "attachment_amount",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  },
+ {
+    "table_name": "SB_LOG_mail_receive",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "mail_id",
+        "type": "STRING"
+      },      {
+        "name": "transferred",
+        "type": "BOOLEAN"
+      },      {
+        "name": "from_type",
+        "type": "INTEGER"
+      },      {
+        "name": "from_user_id",
+        "type": "STRING"
+      },      {
+        "name": "from_character_id",
+        "type": "STRING"
+      },      {
+        "name": "attachment_id_type",
+        "type": "STRING"
+      },      {
+        "name": "attachment_id",
+        "type": "STRING"
+      },      {
+        "name": "attachment_amount",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
+      },      {
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }
+]}

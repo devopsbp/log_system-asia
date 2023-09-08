@@ -1,0 +1,21 @@
+syntax = "proto2";
+option go_package = "proto/save_appearance_weapon_sticker";
+package save_appearance_weapon_sticker;
+import "google/protobuf/timestamp.proto";
+
+message SaveAppearanceWeaponStickerMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional sint32 weapon_id = 3;
+    optional string weapon_id__name = 4;
+    optional string unique_id = 5;
+    optional sint32 weapon_appearance_weapon_id = 6;
+    optional string weapon_appearance_weapon_id__name = 7;
+    optional sint32 weapon_appearance_weapon_sticker_id = 8;
+    optional string weapon_appearance_weapon_sticker_id__name = 9;
+    optional sint32 sticker_type = 10;
+    optional google.protobuf.Timestamp sticker_release_time = 11;
+    optional string request_header_location = 12;
+    optional google.protobuf.Timestamp log_time = 13;
+    optional string uuid = 14;
+}

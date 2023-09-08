@@ -1,0 +1,15 @@
+syntax = "proto2";
+option go_package = "proto/character_levelup";
+package character_levelup;
+import "google/protobuf/timestamp.proto";
+
+message CharacterLevelupMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional sint32 class_type = 3;
+    optional sint32 lv_before = 4;
+    optional sint32 lv_after = 5;
+    optional string request_header_location = 6;
+    optional google.protobuf.Timestamp log_time = 7;
+    optional string uuid = 8;
+}

@@ -1,0 +1,12 @@
+syntax = "proto2";
+option go_package = "proto/batch_currency_delete_expired";
+package batch_currency_delete_expired;
+import "google/protobuf/timestamp.proto";
+
+message BatchCurrencyDeleteExpiredMsg {
+    optional string message_level = 1;
+    optional string message = 2;
+    optional string request_header_location = 3;
+    optional google.protobuf.Timestamp log_time = 4;
+    optional string uuid = 5;
+}

@@ -1,0 +1,15 @@
+syntax = "proto2";
+option go_package = "proto/character_add_engram";
+package character_add_engram;
+import "google/protobuf/timestamp.proto";
+
+message CharacterAddEngramMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional sint32 request_engram = 3;
+    optional sint32 add_engram = 4;
+    optional sint32 now_engram = 5;
+    optional string request_header_location = 6;
+    optional google.protobuf.Timestamp log_time = 7;
+    optional string uuid = 8;
+}

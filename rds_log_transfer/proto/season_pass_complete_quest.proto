@@ -1,0 +1,17 @@
+syntax = "proto2";
+option go_package = "proto/season_pass_complete_quest";
+package season_pass_complete_quest;
+import "google/protobuf/timestamp.proto";
+
+message SeasonPassCompleteQuestMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional sint32 character_level = 3;
+    optional string season_id = 4;
+    optional string season_id__name = 5;
+    optional string season_pass_quest_id = 6;
+    optional string season_pass_quest_id__name = 7;
+    optional string request_header_location = 8;
+    optional google.protobuf.Timestamp log_time = 9;
+    optional string uuid = 10;
+}

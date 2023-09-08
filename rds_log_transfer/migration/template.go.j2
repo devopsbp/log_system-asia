@@ -1,0 +1,56 @@
+package {{ package_name }}
+
+import (
+	"cloud.google.com/go/bigquery"
+	"encoding/json"
+	"rds_log_transfer/bq"
+	"rds_log_transfer/sb_log"
+	shard_db "rds_log_transfer/shard-db"
+)
+
+var boolKeys = []string{ {% for c in bool_columns %}"{{ c }}",{% endfor %} }
+
+type {{ pascal_name }}Item struct {
+    {% for column in struct_columns -%}
+    {{ column.field }} *{{ column.type }} `json:"{{ column.key }},omitempty"`
+    {% endfor -%}
+	Uuid                  *string               `json:"-"`
+	Record                *shard_db.SbLogRecord `json:"-"`
+}
+
+func (i {{ pascal_name }}Item) Save() (map[string]bigquery.Value, string, error) {
+	return map[string]bigquery.Value{
+        {% for column in bq_saver_columns -%}
+        "{{ column.name }}":  {{ column.value }},
+        {% endfor -%}
+	}, bigquery.NoDedupeID, nil
+}
+
+func InsertBqItems(clientWithContext *bq.ClientWithContext, records *[]*shard_db.SbLogRecord, uuidSeed int) ([]*shard_db.SbLogRecord, error) {
+	var tableName string
+	var items = make([]*{{ pascal_name }}Item, 0)
+	var failedRecords = make([]*shard_db.SbLogRecord, 0)
+	for _, record := range *records {
+		if tableName == "" {
+			tableName = record.LogTag
+		}
+		var item {{ pascal_name }}Item
+		item.Record = record
+		uuid := sb_log.GetUUID(uuidSeed, record.Id)
+		item.Uuid = &uuid
+		// escape JSON value
+		jsonEscapedLog := sb_log.EscapeJsonValue(record.Log, &boolKeys)
+		err := json.Unmarshal([]byte(jsonEscapedLog), &item)
+		if err != nil {
+            failedRecords = append(failedRecords, record)
+		}
+		items = append(items, &item)
+	}
+
+	err := bq.InsertRows(clientWithContext, tableName, &items)
+	if err != nil {
+		return failedRecords, err
+	}
+
+	return failedRecords, nil
+}

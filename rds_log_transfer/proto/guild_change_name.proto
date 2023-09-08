@@ -1,0 +1,18 @@
+syntax = "proto2";
+option go_package = "proto/guild_change_name";
+package guild_change_name;
+import "google/protobuf/timestamp.proto";
+
+message GuildChangeNameMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional string character_name = 3;
+    optional string guild_id = 4;
+    optional string old_guild_name = 5;
+    optional string old_guild_tag = 6;
+    optional string new_guild_name = 7;
+    optional string new_guild_tag = 8;
+    optional string request_header_location = 9;
+    optional google.protobuf.Timestamp log_time = 10;
+    optional string uuid = 11;
+}

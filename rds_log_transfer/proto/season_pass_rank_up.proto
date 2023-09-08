@@ -1,0 +1,22 @@
+syntax = "proto2";
+option go_package = "proto/season_pass_rank_up";
+package season_pass_rank_up;
+import "google/protobuf/timestamp.proto";
+
+message SeasonPassRankUpMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional sint32 character_level = 3;
+    optional string season_id = 4;
+    optional string season_id__name = 5;
+    optional google.protobuf.Timestamp buy_date = 6;
+    optional sint32 buy_rank = 7;
+    optional sint32 result_rank = 8;
+    optional sint32 change_points = 9;
+    optional sint32 changed_points = 10;
+    optional sint32 change_free = 11;
+    optional sint32 change_paid = 12;
+    optional string request_header_location = 13;
+    optional google.protobuf.Timestamp log_time = 14;
+    optional string uuid = 15;
+}

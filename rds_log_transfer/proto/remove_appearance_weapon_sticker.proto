@@ -1,0 +1,23 @@
+syntax = "proto2";
+option go_package = "proto/remove_appearance_weapon_sticker";
+package remove_appearance_weapon_sticker;
+import "google/protobuf/timestamp.proto";
+
+message RemoveAppearanceWeaponStickerMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional sint32 weapon_id = 3;
+    optional string weapon_id__name = 4;
+    optional string unique_id = 5;
+    optional sint32 weapon_appearance_weapon_id = 6;
+    optional string weapon_appearance_weapon_id__name = 7;
+    optional sint32 weapon_appearance_weapon_sticker_id = 8;
+    optional string weapon_appearance_weapon_sticker_id__name = 9;
+    optional sint32 sticker_type = 10;
+    optional google.protobuf.Timestamp sticker_release_time = 11;
+    optional sint32 sticker_remover_item_id = 12;
+    optional string sticker_remover_item_id__name = 13;
+    optional string request_header_location = 14;
+    optional google.protobuf.Timestamp log_time = 15;
+    optional string uuid = 16;
+}

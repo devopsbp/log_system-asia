@@ -1,0 +1,19 @@
+syntax = "proto2";
+option go_package = "proto/quest_complete";
+package quest_complete;
+import "google/protobuf/timestamp.proto";
+
+message QuestCompleteMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional sint32 class_type = 3;
+    optional sint32 level = 4;
+    optional string request_header_location = 5;
+    optional sint32 quest_id = 6;
+    optional sint32 clear_count = 7;
+    optional string quest_name = 8;
+    optional string quest_unique_id = 9;
+    optional string auto_order_quest_unique_id = 10;
+    optional google.protobuf.Timestamp log_time = 11;
+    optional string uuid = 12;
+}

@@ -1,0 +1,19 @@
+syntax = "proto2";
+option go_package = "proto/liquid_memory_accumulate";
+package liquid_memory_accumulate;
+import "google/protobuf/timestamp.proto";
+
+message LiquidMemoryAccumulateMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional string character_class = 3;
+    optional sint32 liquid_memory_id = 4;
+    optional sint32 liquid_memory_type = 5;
+    optional sint32 liquid_memory_level = 6;
+    optional sint32 before_accumulate_amount = 7;
+    optional sint32 after_accumulated_amount = 8;
+    optional sint32 add_accumulated_amount = 9;
+    optional string request_header_location = 10;
+    optional google.protobuf.Timestamp log_time = 11;
+    optional string uuid = 12;
+}

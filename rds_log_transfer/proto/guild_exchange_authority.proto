@@ -1,0 +1,18 @@
+syntax = "proto2";
+option go_package = "proto/guild_exchange_authority";
+package guild_exchange_authority;
+import "google/protobuf/timestamp.proto";
+
+message GuildExchangeAuthorityMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional string character_name = 3;
+    optional string to_user_id = 4;
+    optional string to_character_id = 5;
+    optional string to_character_name = 6;
+    optional string guild_id = 7;
+    optional string guild_name = 8;
+    optional string request_header_location = 9;
+    optional google.protobuf.Timestamp log_time = 10;
+    optional string uuid = 11;
+}

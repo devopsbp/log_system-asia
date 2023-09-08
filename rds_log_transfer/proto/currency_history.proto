@@ -1,0 +1,30 @@
+syntax = "proto2";
+option go_package = "proto/currency_history";
+package currency_history;
+import "google/protobuf/timestamp.proto";
+
+message CurrencyHistoryMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional sint32 platform = 3;
+    optional string update_type = 4;
+    optional sint32 change_amount_paid = 5;
+    optional sint32 change_amount_free = 6;
+    optional sint32 after_amount_paid = 7;
+    optional sint32 after_amount_free = 8;
+    optional string action_type = 9;
+    optional string letter_id = 10;
+    optional sint32 price = 11;
+    optional google.protobuf.Timestamp expired_at = 12;
+    optional string request_header_location = 13;
+    optional string reason = 14;
+    optional bool first_purchase = 15;
+    optional string amount_paid = 16;
+    optional string amount_paid_currency = 17;
+    optional sint32 add_count = 18;
+    optional sint32 item_id = 19;
+    optional bool is_used_coupon = 20;
+    optional sint32 discount_amount = 21;
+    optional google.protobuf.Timestamp log_time = 22;
+    optional string uuid = 23;
+}

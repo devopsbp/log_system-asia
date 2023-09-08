@@ -1,0 +1,18 @@
+syntax = "proto2";
+option go_package = "proto/character_money_history";
+package character_money_history;
+import "google/protobuf/timestamp.proto";
+
+message CharacterMoneyHistoryMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional string update_type = 3;
+    optional sint32 change_amount = 4;
+    optional sint32 after_amount = 5;
+    optional sint32 action = 6;
+    optional string action_type = 7;
+    optional string letter_id = 8;
+    optional string request_header_location = 9;
+    optional google.protobuf.Timestamp log_time = 10;
+    optional string uuid = 11;
+}

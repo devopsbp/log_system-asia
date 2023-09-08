@@ -1,0 +1,21 @@
+syntax = "proto2";
+option go_package = "proto/quest_update";
+package quest_update;
+import "google/protobuf/timestamp.proto";
+
+message QuestUpdateMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional sint32 class_type = 3;
+    optional sint32 level = 4;
+    optional string request_header_location = 5;
+    optional sint32 quest_id = 6;
+    optional sint32 status = 7;
+    optional sint32 cur_step = 8;
+    optional string progress = 9;
+    optional string quest_name = 10;
+    optional string quest_unique_id = 11;
+    optional string auto_order_quest_unique_id = 12;
+    optional google.protobuf.Timestamp log_time = 13;
+    optional string uuid = 14;
+}

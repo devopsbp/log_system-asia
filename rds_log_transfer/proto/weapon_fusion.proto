@@ -1,0 +1,32 @@
+syntax = "proto2";
+option go_package = "proto/weapon_fusion";
+package weapon_fusion;
+import "google/protobuf/timestamp.proto";
+
+message WeaponFusionMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional string character_class = 3;
+    optional string unique_id = 4;
+    optional sint32 item_id = 5;
+    optional string item_id__name = 6;
+    optional sint32 perk_id1 = 7;
+    optional string effect_values1 = 8;
+    optional sint32 perk_id2 = 9;
+    optional string effect_values2 = 10;
+    optional sint32 perk_id3 = 11;
+    optional string effect_values3 = 12;
+    optional sint32 perk_id4 = 13;
+    optional string effect_values4 = 14;
+    optional sint32 present_unlocked_slot = 15;
+    optional sint32 used_item_unique_id = 16;
+    optional sint32 used_item_id = 17;
+    optional sint32 used_support_item_id1 = 18;
+    optional sint32 used_support_item_id2 = 19;
+    optional sint32 fusion_slot_no = 20;
+    optional sint32 result_perk_id = 21;
+    optional string result_effect_values = 22;
+    optional string request_header_location = 23;
+    optional google.protobuf.Timestamp log_time = 24;
+    optional string uuid = 25;
+}

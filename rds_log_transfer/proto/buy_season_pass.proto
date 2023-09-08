@@ -1,0 +1,16 @@
+syntax = "proto2";
+option go_package = "proto/buy_season_pass";
+package buy_season_pass;
+import "google/protobuf/timestamp.proto";
+
+message BuySeasonPassMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional sint32 character_level = 3;
+    optional string season_id = 4;
+    optional string season_id__name = 5;
+    optional sint32 type = 6;
+    optional string request_header_location = 7;
+    optional google.protobuf.Timestamp log_time = 8;
+    optional string uuid = 9;
+}

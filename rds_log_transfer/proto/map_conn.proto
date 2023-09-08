@@ -1,0 +1,14 @@
+syntax = "proto2";
+option go_package = "proto/map_conn";
+package map_conn;
+import "google/protobuf/timestamp.proto";
+
+message MapConnMsg {
+    optional string map_name = 1;
+    optional sint32 one_minute_uu = 2;
+    optional sint32 max_conn = 3;
+    optional google.protobuf.Timestamp timestamp = 4;
+    optional string request_header_location = 5;
+    optional google.protobuf.Timestamp log_time = 6;
+    optional string uuid = 7;
+}

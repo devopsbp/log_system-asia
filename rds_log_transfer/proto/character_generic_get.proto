@@ -1,0 +1,16 @@
+syntax = "proto2";
+option go_package = "proto/character_generic_get";
+package character_generic_get;
+import "google/protobuf/timestamp.proto";
+
+message CharacterGenericGetMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional sint32 reward_type = 3;
+    optional sint32 item_id = 4;
+    optional sint32 amount = 5;
+    optional sint32 action_type = 6;
+    optional string request_header_location = 7;
+    optional google.protobuf.Timestamp log_time = 8;
+    optional string uuid = 9;
+}

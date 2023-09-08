@@ -1,0 +1,21 @@
+syntax = "proto2";
+option go_package = "proto/character_item_update";
+package character_item_update;
+import "google/protobuf/timestamp.proto";
+
+message CharacterItemUpdateMsg {
+    optional string user_id = 1;
+    optional string character_id = 2;
+    optional string character_class = 3;
+    optional string request_header_location = 4;
+    optional sint32 item_type = 5;
+    optional sint32 item_id = 6;
+    optional string item_id__name = 7;
+    optional string unique_id = 8;
+    optional bool before_used_flag = 9;
+    optional bool after_used_flag = 10;
+    optional bool before_locked = 11;
+    optional bool after_locked = 12;
+    optional google.protobuf.Timestamp log_time = 13;
+    optional string uuid = 14;
+}
