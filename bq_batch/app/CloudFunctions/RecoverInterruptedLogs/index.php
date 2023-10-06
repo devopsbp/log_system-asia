@@ -225,6 +225,7 @@ function makeDiffLogData(
 ): array|null
 {
     $log_data_from_csv = array();
+    $log_data_times_ = array();
     try {
         if (!$handler = gzopen($dl_file_path, 'r')) {
             throw new Exception("file open error.");
@@ -320,6 +321,9 @@ function makeDiffLogData(
             if ($is_correct_format) {
                 // "uuid" をキーとして行データを格納する
                 $log_data_from_csv[$row_data['uuid']] = $line;
+
+                // "uuid" をキーに "log_time" も格納しておく
+                $log_data_times_[$row_data['uuid']] = new DateTime($row_data['log_time']);
             }
         }
     } catch (Exception $e) {
@@ -334,15 +338,33 @@ function makeDiffLogData(
 
     if (count($log_data_from_csv) > 0) {
         try {
+            // ログファイル中 log_time の最小，最大値を求める
+            /** @var DateTime $min_time_ */
+            $min_time_ = min($log_data_times_);
+            /** @var DateTime $max_time_ */
+            $max_time_ = max($log_data_times_);
+
+            logDefault(sprintf(
+                "log time range: '%s' to '%s'",
+                $min_time_->format('Y-m-d H:i:s.u T'),
+                $max_time_->format('Y-m-d H:i:s.u T')
+            ));
+
             // 条件に指定する uuid のパラメータ数が多くなりクエリ上限にかかる可能性があるので
             // 一定数ごとにクエリを分割する
             // https://cloud.google.com/bigquery/quotas?hl=ja#query_jobs
             foreach (array_chunk(array_keys($log_data_from_csv), MAX_SEND_UUID_COUNT) as $chunk_records) {
+                if (count($chunk_records) == 0) {
+                    continue;
+                }
+
                 // BigQuery のテーブルから投入済みレコードを取得する
                 $query = sprintf(
-                    "SELECT `uuid` FROM %s.%s WHERE `uuid` IN ( '%s' )",
+                    "SELECT `uuid` FROM %s.%s WHERE (`log_time` BETWEEN '%s' AND '%s') AND (`uuid` IN ( '%s' ))",
                     $target_dataset_name,
                     $table_name,
+                    $min_time_->format('Y-m-d H:i:s.u T'),
+                    $max_time_->format('Y-m-d H:i:s.u T'),
                     implode("', '", $chunk_records)
                 );
 

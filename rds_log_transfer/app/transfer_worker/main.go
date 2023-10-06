@@ -21,7 +21,7 @@ type EvChanValues struct {
 type WorkerEvChan chan EvChanValues
 
 // sb_logテーブルから一度に取得する件数
-const selectLimit = 1000
+const selectLimit = 2000
 
 // channel events
 const (
@@ -76,7 +76,6 @@ func (w *Worker) Run() {
 
 	// worker loop
 	for {
-		//fmt.Print(fmt.Sprintf("start worker %s loop", strconv.Itoa(w.no)), "\n")
 		// オフセットID取得
 		offsetId, err := w.getOffsetId()
 		if err != nil {
@@ -108,8 +107,6 @@ func (w *Worker) Run() {
 			w.pushInfoLog(fmt.Sprintf("processed %d records", len(*sbLogRecords)))
 		}
 
-		//fmt.Print(fmt.Sprintf("end worker %s loop", strconv.Itoa(w.no)), "\n")
-
 		// check onExit signal
 		select {
 		case <-w.cancelCtx.Done():
@@ -118,7 +115,9 @@ func (w *Worker) Run() {
 		default:
 		}
 
-		time.Sleep(time.Second * 1)
+		if !(len(*sbLogRecords) > 0) {
+			time.Sleep(time.Second * 1)
+		}
 	}
 }
 

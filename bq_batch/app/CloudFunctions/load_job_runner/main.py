@@ -21,8 +21,6 @@ DATABASE_TIME_FORMAT = '%Y-%m-%d %H:%M:%S'
 STATUS_NEW      = 'new'
 STATUS_WORKING  = 'working'
 
-LIST_SPLIT_COUNT = 200
-
 # Publishes a message to a Cloud Pub/Sub topic.
 def load_job_runner(event, context):
     # シークレットから環境変数を設定
@@ -142,7 +140,8 @@ def load_job_runner(event, context):
             del target_objects[key]
 
     # 処理する最大数で区切る
-    target_objects = itertools.islice(target_objects, LIST_SPLIT_COUNT)
+    list_split_count: int = int(os.environ['SB_LOG_CLOUD_STORAGE_LIST_SPLIT_COUNT'])
+    target_objects = itertools.islice(target_objects, list_split_count)
     target_objects, objs_tmp = itertools.tee(target_objects)
 
     object_count: int = 0
@@ -239,7 +238,7 @@ def load_job_runner(event, context):
                 ORDER BY 
                     log_time
                 LIMIT
-                    {LIST_SPLIT_COUNT}
+                    {list_split_count}
             )
         ORDER BY
             target_dataset,

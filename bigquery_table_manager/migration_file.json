@@ -921,6 +921,9 @@
         "name": "map_name",
         "type": "STRING"
       },      {
+        "name": "content_id",
+        "type": "STRING"
+      },      {
         "name": "location_x",
         "type": "FLOAT"
       },      {
@@ -1632,9 +1635,6 @@
         "name": "dungeon_uid",
         "type": "STRING"
       },      {
-        "name": "passage_step",
-        "type": "INTEGER"
-      },      {
         "name": "complete_num",
         "type": "INTEGER"
       },      {
@@ -1647,8 +1647,41 @@
         "name": "score",
         "type": "INTEGER"
       },      {
-        "name": "use_plus_reward",
+        "name": "log_time",
+        "type": "TIMESTAMP"
+      },
+      {
+        "name": "uuid",
+        "type": "STRING"
+      }
+    ]
+  }, 
+ {
+    "table_name": "SB_LOG_character_dungeon_reward_plus",
+    "table_schema": [      {
+        "name": "user_id",
+        "type": "STRING"
+      },      {
+        "name": "character_id",
+        "type": "STRING"
+      },      {
+        "name": "dungeon_uid",
+        "type": "STRING"
+      },      {
+        "name": "dungeon_uuid",
+        "type": "STRING"
+      },      {
+        "name": "use_reward_plus",
         "type": "BOOLEAN"
+      },      {
+        "name": "after_amount",
+        "type": "INTEGER"
+      },      {
+        "name": "reward_ids",
+        "type": "STRING"
+      },      {
+        "name": "request_header_location",
+        "type": "STRING"
       },      {
         "name": "log_time",
         "type": "TIMESTAMP"
